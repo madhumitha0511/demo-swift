@@ -616,6 +616,49 @@ h1,  h2,  h3,  h4,  h5,  h6{
 .h{
   position: absolute;
 }
+.destination-bg {
+  background: linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
+  padding-bottom: 80px; /* ensures full coverage */
+  position: relative;
+  overflow: hidden;
+}
+.destination-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  transition: all 0.3s ease;
+  border: 1px solid #f1f5f9;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+}
+
+.destination-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+}
+
+.destination-card img {
+  border-radius: 12px;
+  height: 180px;
+  width: 100%;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.destination-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.destination-points {
+  font-size: 14px;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+.destination-points p {
+  margin: 4px 0;
+}
 .i{
   position: relative;
 }
