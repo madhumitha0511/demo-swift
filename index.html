@@ -4,8 +4,374 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Base - Tailwind CSS Startup Template</title>
-  <link rel="icon" href="favicon.ico"><link href="style.css" rel="stylesheet"></head>
+    <title>Swift Visa – Study Abroad at Zero Fee | Reach Your Dream College</title>
+    <link rel="icon" href="favicon.ico">
+    <link href="style.css" rel="stylesheet">
+    <style>
+      /* ===== SWIFT VISA CUSTOM OVERRIDES ===== */
+
+      /* NAV ENHANCEMENTS */
+      .sv-nav-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: linear-gradient(135deg, #4A6CF7, #7B3FE4);
+        color: #fff !important;
+        padding: 9px 22px;
+        border-radius: 50px;
+        font-weight: 700;
+        font-size: 14px;
+        text-decoration: none;
+        transition: all 0.25s;
+        box-shadow: 0 4px 15px rgba(74,108,247,0.4);
+      }
+      .sv-nav-cta:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(74,108,247,0.5);
+      }
+      .sv-call-link {
+        font-size: 13px;
+        font-weight: 600;
+        color: inherit;
+        text-decoration: none;
+        opacity: 0.75;
+        transition: opacity 0.2s;
+      }
+      .sv-call-link:hover { opacity: 1; }
+
+      /* DESTINATION CARDS */
+      .destination-card {
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 16px;
+        padding: 28px 24px;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+      .destination-card::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #4A6CF7, #7B3FE4);
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+      .destination-card:hover {
+        transform: translateY(-6px);
+        border-color: rgba(74,108,247,0.4);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+      }
+      .destination-card:hover::before { opacity: 1; }
+      .destination-flag {
+        font-size: 42px;
+        line-height: 1;
+        margin-bottom: 14px;
+        display: block;
+      }
+      .destination-title {
+        font-size: 20px !important;
+        font-weight: 800 !important;
+        margin-bottom: 16px !important;
+        color: #000000 !important;
+      }
+      .destination-points p {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 14px;
+        color: rgba(0, 0, 0, 0.65);
+        margin-bottom: 8px;
+        line-height: 1.5;
+      }
+      .destination-points p::before {
+        content: '✓';
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 18px;
+        height: 18px;
+        background: rgba(74,108,247,0.2);
+        border-radius: 50%;
+        font-size: 10px;
+        color: #000000;
+        flex-shrink: 0;
+      }
+
+      /* SERVICES ENHANCEMENTS */
+      .sv-service-card {
+        border-radius: 14px;
+        border: 1px solid rgba(255,255,255,0.08);
+        transition: all 0.3s;
+      }
+      .sv-service-card:hover {
+        border-color: rgba(74,108,247,0.35);
+        transform: translateY(-4px);
+      }
+
+      /* TEAM / ABOUT SECTION */
+      .sv-team-card {
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 16px;
+        padding: 28px 20px;
+        text-align: center;
+        transition: all 0.3s;
+      }
+      .sv-team-card:hover {
+        border-color: rgba(74,108,247,0.3);
+        transform: translateY(-4px);
+        box-shadow: 0 16px 32px rgba(0,0,0,0.2);
+      }
+      .sv-team-avatar {
+        width: 90px; height: 90px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid rgba(74,108,247,0.4);
+        margin: 0 auto 16px;
+        display: block;
+      }
+      .sv-team-name {
+        font-size: 16px !important;
+        font-weight: 700 !important;
+        margin-bottom: 4px !important;
+      }
+      .sv-team-role {
+        font-size: 13px;
+        opacity: 0.6;
+      }
+
+      /* CONTACT INFO PANEL */
+      .sv-contact-info {
+        background: rgba(255,255,255,0.03);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 16px;
+        padding: 32px;
+        position: relative;
+        overflow: hidden;
+      }
+      .sv-contact-info::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #4A6CF7, #7B3FE4);
+      }
+      .sv-contact-detail {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 20px;
+      }
+      .sv-contact-icon {
+        width: 40px; height: 40px;
+        background: rgba(74,108,247,0.15);
+        border: 1px solid rgba(74,108,247,0.25);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        flex-shrink: 0;
+      }
+      .sv-contact-label {
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        opacity: 0.5;
+        display: block;
+        margin-bottom: 3px;
+      }
+      .sv-contact-val {
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1.5;
+      }
+      .sv-contact-val a {
+        text-decoration: none;
+        color: inherit;
+        transition: color 0.2s;
+      }
+      .sv-contact-val a:hover { color: #4A6CF7; }
+
+      /* FORM STYLES */
+      .sv-form-input {
+        width: 100%;
+        background: rgba(255,255,255,0.05) !important;
+        border: 1.5px solid rgba(255,255,255,0.1) !important;
+        border-radius: 10px !important;
+        padding: 13px 16px !important;
+        font-size: 15px;
+        color: inherit;
+        outline: none;
+        transition: all 0.25s;
+        font-family: inherit;
+        appearance: none;
+      }
+      .sv-form-input:focus {
+        border-color: #4A6CF7 !important;
+        background: rgba(74,108,247,0.07) !important;
+        box-shadow: 0 0 0 4px rgba(74,108,247,0.12);
+      }
+      .sv-form-input::placeholder { opacity: 0.35; }
+      .sv-form-select {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='7'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 14px center;
+        padding-right: 40px !important;
+        cursor: pointer;
+      }
+      .sv-form-label {
+        display: block;
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        opacity: 0.55;
+        margin-bottom: 7px;
+      }
+      .sv-form-group { margin-bottom: 16px; }
+      .sv-form-group-half { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 16px; }
+      @media(max-width:640px){ .sv-form-group-half { grid-template-columns: 1fr; } }
+      .sv-submit-btn {
+        background: linear-gradient(135deg, #4A6CF7, #7B3FE4);
+        color: #fff;
+        border: none;
+        padding: 14px 32px;
+        border-radius: 50px;
+        font-size: 15px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.25s;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        letter-spacing: 0.2px;
+      }
+      .sv-submit-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(74,108,247,0.45);
+      }
+      .sv-submit-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+      #sv-form-status {
+        padding: 12px 18px;
+        border-radius: 10px;
+        font-size: 14px;
+        font-weight: 500;
+        margin-top: 14px;
+        display: none;
+      }
+      #sv-form-status.ok { background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.3); color: #4ade80; display: block; }
+      #sv-form-status.err { background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.3); color: #f87171; display: block; }
+
+      /* ZERO FEE BADGE */
+      .sv-zero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: rgba(34,197,94,0.1);
+        border: 1px solid rgba(34,197,94,0.25);
+        color: #4ade80;
+        padding: 4px 12px;
+        border-radius: 50px;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 18px;
+      }
+      .sv-zero-badge::before {
+        content: '';
+        width: 7px; height: 7px;
+        border-radius: 50%;
+        background: #4ade80;
+        animation: sv-pulse 2s infinite;
+      }
+      @keyframes sv-pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(1.4)} }
+
+      /* USP highlights */
+      .sv-usp-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 20px 0 28px;
+      }
+      .sv-usp-chip {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.1);
+        padding: 7px 14px;
+        border-radius: 50px;
+        font-size: 13px;
+        color: rgba(14, 13, 13, 0.75);
+      }
+      .sv-usp-chip span { color: #4ade80; font-weight: 700; }
+
+      /* WHATSAPP FLOAT */
+      .sv-whatsapp {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        width: 56px; height: 56px;
+        background: #25D366;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+        z-index: 9999;
+        transition: all 0.25s;
+        text-decoration: none;
+      }
+      .sv-whatsapp:hover { transform: scale(1.1); box-shadow: 0 8px 30px rgba(37,211,102,0.5); }
+
+      /* STATS COUNTER */
+      .sv-stats-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0;
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 16px;
+        overflow: hidden;
+        margin: 40px 0;
+      }
+      .sv-stat {
+        padding: 28px 20px;
+        text-align: center;
+        border-right: 1px solid rgba(255,255,255,0.08);
+        background: rgba(255,255,255,0.02);
+        transition: background 0.3s;
+      }
+      .sv-stat:last-child { border-right: none; }
+      .sv-stat:hover { background: rgba(74,108,247,0.07); }
+      .sv-stat-num {
+        display: block;
+        font-size: 34px;
+        font-weight: 800;
+        background: linear-gradient(135deg, #4A6CF7, #7B3FE4);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        line-height: 1.1;
+        margin-bottom: 6px;
+      }
+      .sv-stat-label { font-size: 13px; opacity: 0.55; }
+      @media(max-width:640px){
+        .sv-stats-grid { grid-template-columns: 1fr 1fr; }
+        .sv-stat { border-bottom: 1px solid rgba(255,255,255,0.08); }
+      }
+
+      /* TESTIMONIAL OVERRIDE */
+      .sv-testi-name { font-size: 15px; font-weight: 700; margin-top: 16px; }
+      .sv-testi-role { font-size: 13px; opacity: 0.55; }
+      .sv-testi-stars { color: #FACC15; font-size: 14px; margin-bottom: 8px; }
+    </style>
+  </head>
   <body
     x-data="{ page: 'home', 'darkMode': true, 'stickyMenu': false, 'navigationOpen': false, 'scrollTop': false }"
     x-init="
@@ -13,75 +379,63 @@
          $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))"
     :class="{'b eh': darkMode === true}"
   >
+
     <!-- ===== Header Start ===== -->
     <header
-  class="g s r vd ya cj"
-  :class="{ 'hh sm _k dj bl ll' : stickyMenu }"
-  @scroll.window="stickyMenu = (window.pageYOffset > 20) ? true : false"
->
-  <div class="bb ze ki xn 2xl:ud-px-0 oo wf yf i">
-    <div class="vd to/4 tc wf yf">
-      <a href="index.html">
-        <img class="om" src="images/logo-light.jpeg" alt="Logo Light" style="height: 45px; width: auto;"/>
-        <img class="xc nm" src="images/logo-dark.jpeg" alt="Logo Dark" style="height: 45px; width: auto;" />
-      </a>
-
-      <!-- Hamburger Toggle BTN -->
-      <button class="po rc" @click="navigationOpen = !navigationOpen">
-        <span class="rc i pf re pd">
-          <span class="du-block h q vd yc">
-            <span class="rc i r s eh um tg te rd eb ml jl dl" :class="{ 'ue el': !navigationOpen }"></span>
-            <span class="rc i r s eh um tg te rd eb ml jl fl" :class="{ 'ue qr': !navigationOpen }"></span>
-            <span class="rc i r s eh um tg te rd eb ml jl gl" :class="{ 'ue hl': !navigationOpen }"></span>
-          </span>
-          <span class="du-block h q vd yc lf">
-            <span class="rc eh um tg ml jl el h na r ve yc" :class="{ 'sd dl': !navigationOpen }"></span>
-            <span class="rc eh um tg ml jl qr h s pa vd rd" :class="{ 'sd rr': !navigationOpen }"></span>
-          </span>
-        </span>
-      </button>
-      <!-- Hamburger Toggle BTN -->
-    </div>
-
-    <div
-      class="vd wo/4 sd qo f ho oo wf yf"
-      :class="{ 'd hh rm sr td ud qg ug jc yh': navigationOpen }"
+      class="g s r vd ya cj"
+      :class="{ 'hh sm _k dj bl ll' : stickyMenu }"
+      @scroll.window="stickyMenu = (window.pageYOffset > 20) ? true : false"
     >
-      <nav>
-        <ul class="tc _o sf yo cg ep">
-          <li><a href="index.html" class="xl" :class="{ 'mk': page === 'home' }">Home</a></li>
-          <li><a href="index.html#About" class="xl">About Us</a></li>
-          <li><a href="index.html#services" class="xl">Services</a></li>
-          <li><a href="index.html#destination" class="xl">Destination</a></li>
-          
-          </li>
-          <a href="#" class="ek jk lk gh gi hi rg ml il vc _d _l"
-                  >Get Started Now</a>
-          
-        </ul>
-      </nav>
-
-      <div class="tc wf ig pb no">
-        <div class="pc h io pa ra" :class="navigationOpen ? '!-ud-visible' : 'd'">
-          <label class="rc ab i">
-            <input type="checkbox" :value="darkMode" @change="darkMode = !darkMode" class="pf vd yc uk h r za ab" />
-            <!-- Icon Sun -->
-            <svg :class="{ 'wn' : page === 'home', 'xh' : page === 'home' && stickyMenu }" class="th om" width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12.0908 18.6363C10.3549 18.6363 8.69 17.9467 7.46249 16.7192C6.23497 15.4916 5.54537 13.8268 5.54537 12.0908C5.54537 10.3549 6.23497 8.69 7.46249 7.46249C8.69 6.23497 10.3549 5.54537 12.0908 5.54537C13.8268 5.54537 15.4916 6.23497 16.7192 7.46249C17.9467 8.69 18.6363 10.3549 18.6363 12.0908C18.6363 13.8268 17.9467 15.4916 16.7192 16.7192C15.4916 17.9467 13.8268 18.6363 12.0908 18.6363ZM12.0908 16.4545C13.2481 16.4545 14.358 15.9947 15.1764 15.1764C15.9947 14.358 16.4545 13.2481 16.4545 12.0908C16.4545 10.9335 15.9947 9.8236 15.1764 9.00526C14.358 8.18692 13.2481 7.72718 12.0908 7.72718C10.9335 7.72718 9.8236 8.18692 9.00526 9.00526C8.18692 9.8236 7.72718 10.9335 7.72718 12.0908C7.72718 13.2481 8.18692 14.358 9.00526 15.1764C9.8236 15.9947 10.9335 16.4545 12.0908 16.4545ZM10.9999 0.0908203H13.1817V3.36355H10.9999V0.0908203ZM10.9999 20.8181H13.1817V24.0908H10.9999V20.8181ZM2.83446 4.377L4.377 2.83446L6.69082 5.14828L5.14828 6.69082L2.83446 4.37809V4.377ZM17.4908 19.0334L19.0334 17.4908L21.3472 19.8046L19.8046 21.3472L17.4908 19.0334ZM19.8046 2.83337L21.3472 4.377L19.0334 6.69082L17.4908 5.14828L19.8046 2.83446V2.83337ZM5.14828 17.4908L6.69082 19.0334L4.377 21.3472L2.83446 19.8046L5.14828 17.4908ZM24.0908 10.9999V13.1817H20.8181V10.9999H24.0908ZM3.36355 10.9999V13.1817H0.0908203V10.9999H3.36355Z" fill=""/>
-            </svg>
-            <!-- Icon Sun -->
-            <img class="xc nm" src="images/icon-moon.svg" alt="Moon" />
-          </label>
+      <div class="bb ze ki xn 2xl:ud-px-0 oo wf yf i">
+        <!-- Logo -->
+        <div class="vd to/4 tc wf yf">
+          <a href="index.html">
+            <img class="om" src="images/logo-light.jpeg" alt="Swift Visa" style="height:45px;width:auto;"/>
+            <img class="xc nm" src="images/logo-dark.jpeg" alt="Swift Visa" style="height:45px;width:auto;"/>
+          </a>
+          <!-- Hamburger -->
+          <button class="po rc" @click="navigationOpen = !navigationOpen">
+            <span class="rc i pf re pd">
+              <span class="du-block h q vd yc">
+                <span class="rc i r s eh um tg te rd eb ml jl dl" :class="{ 'ue el': !navigationOpen }"></span>
+                <span class="rc i r s eh um tg te rd eb ml jl fl" :class="{ 'ue qr': !navigationOpen }"></span>
+                <span class="rc i r s eh um tg te rd eb ml jl gl" :class="{ 'ue hl': !navigationOpen }"></span>
+              </span>
+              <span class="du-block h q vd yc lf">
+                <span class="rc eh um tg ml jl el h na r ve yc" :class="{ 'sd dl': !navigationOpen }"></span>
+                <span class="rc eh um tg ml jl qr h s pa vd rd" :class="{ 'sd rr': !navigationOpen }"></span>
+              </span>
+            </span>
+          </button>
         </div>
 
-         </div>
-    </div>
-  </div>
-</header>
+        <!-- Nav Links -->
+        <div
+          class="vd wo/4 sd qo f ho oo wf yf"
+          :class="{ 'd hh rm sr td ud qg ug jc yh': navigationOpen }"
+        >
+          <nav>
+            <ul class="tc _o sf yo cg ep" style="justify-content:center;">
+              <li><a href="index.html" class="xl" :class="{ 'mk': page === 'home' }">Home</a></li>
+              <li><a href="#About" class="xl">About Us</a></li>
+              <li><a href="#services" class="xl">Services</a></li>
+              <li><a href="#destination" class="xl">Destinations</a></li>
+              <li><a href="#testimonials" class="xl">Testimonials</a></li>
+              <li><a href="#support" class="xl">Contact</a></li>
+            </ul>
+          </nav>
 
+          <div class="tc wf ig pb no" style="gap:12px;align-items:center;">
+            <a href="tel:+919000101213" class="sv-call-link">📞 +91 9000101213</a>
+            <a href="#support" class="sv-nav-cta">Free Counselling →</a>
+          </div>
+        </div>
+      </div>
+    </header>
     <!-- ===== Header End ===== -->
 
     <main>
+
       <!-- ===== Hero Start ===== -->
       <section class="gj do ir hj sp jr i pg">
         <!-- Hero Images -->
@@ -90,27 +444,31 @@
           <img src="images/shape-02.svg" alt="shape" class="xc 2xl:ud-block h u p va" />
           <img src="images/shape-03.svg" alt="shape" class="xc 2xl:ud-block h v w va" />
           <img src="images/shape-04.svg" alt="shape" class="h q r" />
-          <img src="images/hero.png" alt="Woman" class="h q r ua" />
+          <img src="images/hero.png" alt="Student" class="h q r ua" />
         </div>
 
         <!-- Hero Content -->
         <div class="bb ze ki xn 2xl:ud-px-0">
           <div class="tc _o">
             <div class="animate_left jn/2">
-              <h1 class="fk vj zp or kk wm wb">Study Abroad Made Simple. Fast. Reliable.</h1>
+              <div class="sv-zero-badge">Zero Consulting Fee — Always Free for Students</div>
+              <h1 class="fk vj zp or kk wm wb">Dream to Study Abroad? We Make It Happen — For Free.</h1>
               <p class="fq">
-                Get admission into 900+ global universities with expert guidance...</p>
+                T20 Services has guided 10,000+ students into top universities across USA, UK, Canada & Australia. Expert admissions, visa, and scholarship support — at absolutely zero cost to you.
+              </p>
 
-              <div class="tc tf yo zf mb">
-                <span class="tc sf">
-                  <a href="#" class="inline-block ek xj kk wm"> Call us (+91) 90420 – 35522</a>
-                  <span class="inline-block">For any question or concern</span>
-                </span>
-                <a href="#" class="ek jk lk gh gi hi rg ml il vc _d _l"
-                  >Get Started Now</a
-                >
+              <div class="sv-usp-row">
+                <div class="sv-usp-chip"><span>✓</span> No Hidden Fees</div>
+                <div class="sv-usp-chip"><span>✓</span> 99% Visa Success</div>
+                <div class="sv-usp-chip"><span>✓</span> 48-Hr Offer Letters</div>
+                <div class="sv-usp-chip"><span>✓</span> 900+ Universities</div>
+              </div>
 
-                
+              <div class="tc tf yo zf mb" style="gap:16px;flex-wrap:wrap;">
+                <a href="#support" class="ek jk lk gh gi hi rg ml il vc _d _l">Get Free Counselling</a>
+                <a href="tel:+919000101213" style="display:inline-flex;align-items:center;gap:8px;font-size:14px;opacity:.75;text-decoration:none;color:inherit;">
+                  📞 +91 9000101213
+                </a>
               </div>
             </div>
           </div>
@@ -118,1200 +476,698 @@
       </section>
       <!-- ===== Hero End ===== -->
 
-      <!-- ===== Small Features Start ===== -->
-      <section id="features">
-        <div class="bb ze ki yn 2xl:ud-px-12.5">
-          <div class="tc uf zo xf ap zf bp mq">
-            <!-- Small Features Item -->
-            <div class="animate_top kn to/3 tc cg oq">
-              <div class="tc wf xf cf ae cd rg mh">
-                <img src="images/icon-01.svg" alt="Icon" />
+      <!-- ===== Stats Bar ===== -->
+      <section style="padding:0 30px 50px;">
+        <div class="bb ze ki xn">
+          <div class="sv-stats-grid">
+            <div class="sv-stat"><span class="sv-stat-num">10,000+</span><span class="sv-stat-label">Students Guided</span></div>
+            <div class="sv-stat"><span class="sv-stat-num">900+</span><span class="sv-stat-label">University Partners</span></div>
+            <div class="sv-stat"><span class="sv-stat-num">99%</span><span class="sv-stat-label">Visa Success Rate</span></div>
+            <div class="sv-stat"><span class="sv-stat-num">48 Hrs</span><span class="sv-stat-label">Offer Letter Delivery</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== About Start ===== -->
+      <section id="About" class="ji gp uq 2xl:ud-py-35 pg">
+        <div class="bb ze ki xn wq">
+          <div class="tc wf gg qq">
+            <!-- About Images -->
+            <div class="animate_left xc gn gg jn/2 i">
+              <div>
+                <img src="images/shape-05.svg" alt="Shape" class="h -ud-left-5 x" />
+                <img src="images/about-01.png" alt="Students" class="ib" />
+                <img src="images/about-02.png" alt="Counselling" />
               </div>
               <div>
-                <h4 class="ek yj go kk wm xb"> 10,000+ </h4>
-                <p>  Successful Applications  </p>
+                <img src="images/shape-06.svg" alt="Shape" />
+                <img src="images/about-03.png" alt="Visa" class="ob gb" />
+                <img src="images/shape-07.svg" alt="Shape" class="bb" />
               </div>
             </div>
 
-            <!-- Small Features Item -->
-            <div class="animate_top kn to/3 tc cg oq">
-              <div class="tc wf xf cf ae cd rg nh">
-                <img src="images/icon-02.svg" alt="Icon" />
-              </div>
-              <div>
-                <h4 class="ek yj go kk wm xb">900+ </h4>
-                <p>University Partnerships</p>
-              </div>
-            </div>
+            <!-- About Content -->
+            <div class="animate_right jn/2">
+              <h4 class="ek yj mk gb">ABOUT T20 SERVICES</h4>
+              <h2 class="fk vj zp pr kk wm qb">Founded in Hyderabad in 2008 — Your Trusted Education Partner</h2>
+              <p class="uo">
+                T20 Services was established with one core principle: educating students on the right course options based on their profile, in reputed universities across the world. Over 12+ years, we have earned the trust of more than <strong>10,000 students</strong> by providing comprehensive, transparent, and result-driven overseas education guidance.
+              </p>
+              <p class="uo" style="margin-top:14px;">
+                We have command over the global education system and are actively involved in giving thorough and reliable information about higher education in the USA, UK, Canada, and Australia — all at <strong>zero cost to students</strong>.
+              </p>
 
-            <!-- Small Features Item -->
-            <div class="animate_top kn to/3 tc cg oq">
-              <div class="tc wf xf cf ae cd rg oh">
-                <img src="images/icon-03.svg" alt="Icon" />
+              <div style="display:flex;flex-direction:column;gap:14px;margin:24px 0;">
+                <div style="display:flex;gap:12px;align-items:flex-start;">
+                  <span style="font-size:20px;margin-top:2px;">🎯</span>
+                  <div>
+                    <strong style="display:block;font-size:15px;margin-bottom:3px;">Our Mission</strong>
+                    <p style="font-size:14px;opacity:.65;line-height:1.55;">Educate students on the right course alternatives based on their profiles in reputable universities across the world.</p>
+                  </div>
+                </div>
+                <div style="display:flex;gap:12px;align-items:flex-start;">
+                  <span style="font-size:20px;margin-top:2px;">🌟</span>
+                  <div>
+                    <strong style="display:block;font-size:15px;margin-bottom:3px;">Our Vision</strong>
+                    <p style="font-size:14px;opacity:.65;line-height:1.55;">To become India's most trusted overseas education partner, enabling students to transform their aspirations into global achievements.</p>
+                  </div>
+                </div>
+                <div style="display:flex;gap:12px;align-items:flex-start;">
+                  <span style="font-size:20px;margin-top:2px;">💡</span>
+                  <div>
+                    <strong style="display:block;font-size:15px;margin-bottom:3px;">Why Choose Us</strong>
+                    <p style="font-size:14px;opacity:.65;line-height:1.55;">We're compensated by our partner universities — so our expert guidance, visa support, and scholarship assistance are <strong>completely free</strong> for every student.</p>
+                  </div>
+                </div>
               </div>
-              <div>
-                <h4 class="ek yj go kk wm xb">Fast Support System </h4>
-                <p>Track Admissions & Visa Support</p>
-              </div>
+
+              <a href="https://www.youtube.com/watch?v=xcJtL7QggTI" data-fslightbox class="vc wf hg mb">
+                <span class="tc wf xf be dd rg i gh ua">
+                  <span class="nf h vc yc vd rg gh qk -ud-z-1"></span>
+                  <img src="images/icon-play.svg" alt="Play" />
+                </span>
+                <span class="kk">SEE HOW WE WORK</span>
+              </a>
             </div>
           </div>
         </div>
       </section>
-      <!-- ===== Small Features End ===== -->
+      <!-- ===== About End ===== -->
 
-<!-- ===== About Start ===== -->
-<section id="About" class="ji gp uq 2xl:ud-py-35 pg">
-  <div class="bb ze ki xn wq">
-    <div class="tc wf gg qq">
-      
-      <!-- About Images -->
-      <div class="animate_left xc gn gg jn/2 i">
-        <div>
-          <img src="images/shape-05.svg" alt="Shape" class="h -ud-left-5 x" />
-          <img src="images/about-01.png" alt="About" class="ib" />
-          <img src="images/about-02.png" alt="About" />
-        </div>
-        <div>
-          <img src="images/shape-06.svg" alt="Shape" />
-          <img src="images/about-03.png" alt="About" class="ob gb" />
-          <img src="images/shape-07.svg" alt="Shape" class="bb" />
-        </div>
-      </div>
-
-      <!-- About Content -->
-      <div class="animate_right jn/2">
-        <h4 class="ek yj mk gb">ABOUT SWIFT VISA</h4>
-
-        <h2 class="fk vj zp pr kk wm qb">
-          Your Trusted Partner for Global Education Opportunities
-        </h2>
-
-        <p class="uo">
-          At Swift Visa, we empower students to pursue international education by connecting them with leading universities across the UK, Canada, Australia, the USA, Europe, and beyond. 
-          Backed by a strong network of <strong>900+ global universities</strong>, we deliver complete, end-to-end support—from selecting the right course to securing admissions, visas, and scholarships with confidence.
-        </p>
-
-        <p class="uo mt-4">
-          <strong>Our Mission:</strong> To simplify the study abroad journey by providing transparent, efficient, and personalized guidance that helps students achieve global academic and career success.
-        </p>
- <p class="uo mt-2">
-          <strong>Our Vision:</strong> To become India’s most trusted and result-driven overseas education partner, enabling students to transform their aspirations into global achievements.
-        </p>
-        <p class="uo mt-2">
-          <strong>Zero Fee Promise</strong> We're compensated by our partner universities which means our expert guidance is always completely free for students.</p>
-
-        <a href="https://www.youtube.com/watch?v=xcJtL7QggTI" data-fslightbox class="vc wf hg mb">
-          <span class="tc wf xf be dd rg i gh ua">
-            <span class="nf h vc yc vd rg gh qk -ud-z-1"></span>
-            <img src="images/icon-play.svg" alt="Play" />
-          </span>
-          <span class="kk">SEE HOW WE WORK</span>
-        </a>
-      </div>
-
-    </div>
-  </div>
-</section>
-<!-- ===== About End ===== -->
-<!-- ===== Clients Start ===== -->
+      <!-- ===== Trusted By ===== -->
       <section class="pj vp mr">
-        <!-- Section Title Start -->
-        <div
-          x-data="{ sectionTitle: `Trusted by Global Brands`, sectionTitleText: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using.`}"
-        >
+        <div x-data="{ sectionTitle: `Trusted by 10,000+ Students Across India`, sectionTitleText: `From Hyderabad to every corner of India, students trust T20 Services for their overseas education journey.`}">
           <div class="animate_top bb ze rj ki xn vq">
-    <h2
-            x-text="sectionTitle"
-            class="fk vj pr kk wm on/5 gq/2 bb _b"
-    >
-    </h2>
-    <p class="bb on/5 wo/5 hq" x-text="sectionTitleText"></p>
-</div>
-
-
+            <h2 x-text="sectionTitle" class="fk vj pr kk wm on/5 gq/2 bb _b"></h2>
+            <p class="bb on/5 wo/5 hq" x-text="sectionTitleText"></p>
+          </div>
         </div>
-        <!-- Section Title End -->
-
         <div class="bb ze ah ch pm hj xp ki xn 2xl:ud-px-49 bc">
           <div class="wc rf qn zf cp kq xf wf">
-            <a href="#" class="rc animate_top">
-              <img class="th wl ml il zl om" src="images/brand-light-01.svg" alt="Clients" />
-              <img class="xc sk ml il zl nm" src="images/brand-dark-01.svg" alt="Clients" />
-            </a>
-            <a href="#" class="rc animate_top">
-              <img class="tk ml il zl om" src="images/brand-light-02.svg" alt="Clients" />
-              <img class="xc sk ml il zl nm" src="images/brand-dark-02.svg" alt="Clients" />
-            </a>
-            <a href="#" class="rc animate_top">
-              <img class="tk ml il zl om" src="images/brand-light-03.svg" alt="Clients" />
-              <img class="xc sk ml il zl nm" src="images/brand-dark-03.svg" alt="Clients" />
-            </a>
-            <a href="#" class="rc animate_top">
-              <img class="tk ml il zl om" src="images/brand-light-04.svg" alt="Clients" />
-              <img class="xc sk ml il zl nm" src="images/brand-dark-04.svg" alt="Clients" />
-            </a>
-            <a href="#" class="rc animate_top">
-              <img class="tk ml il zl om" src="images/brand-light-05.svg" alt="Clients" />
-              <img class="xc sk ml il zl nm" src="images/brand-dark-05.svg" alt="Clients" />
-            </a>
-            <a href="#" class="rc animate_top">
-              <img class="tk ml il zl om" src="images/brand-light-06.svg" alt="Clients" />
-              <img class="xc sk ml il zl nm" src="images/brand-dark-06.svg" alt="Clients" />
-            </a>
+            <a href="#" class="rc animate_top"><img class="th wl ml il zl om" src="images/brand-light-01.svg" alt="Partner" /><img class="xc sk ml il zl nm" src="images/brand-dark-01.svg" alt="Partner" /></a>
+            <a href="#" class="rc animate_top"><img class="tk ml il zl om" src="images/brand-light-02.svg" alt="Partner" /><img class="xc sk ml il zl nm" src="images/brand-dark-02.svg" alt="Partner" /></a>
+            <a href="#" class="rc animate_top"><img class="tk ml il zl om" src="images/brand-light-03.svg" alt="Partner" /><img class="xc sk ml il zl nm" src="images/brand-dark-03.svg" alt="Partner" /></a>
+            <a href="#" class="rc animate_top"><img class="tk ml il zl om" src="images/brand-light-04.svg" alt="Partner" /><img class="xc sk ml il zl nm" src="images/brand-dark-04.svg" alt="Partner" /></a>
+            <a href="#" class="rc animate_top"><img class="tk ml il zl om" src="images/brand-light-05.svg" alt="Partner" /><img class="xc sk ml il zl nm" src="images/brand-dark-05.svg" alt="Partner" /></a>
+            <a href="#" class="rc animate_top"><img class="tk ml il zl om" src="images/brand-light-06.svg" alt="Partner" /><img class="xc sk ml il zl nm" src="images/brand-dark-06.svg" alt="Partner" /></a>
           </div>
         </div>
       </section>
-      <!-- ===== Clients End ===== -->
 
+      <!-- ===== Study Destinations Start ===== -->
+      <section id="destination" class="i pg ji gp uq">
+        <span class="rc h s r vd fd/5 fh rm"></span>
+        <img src="images/shape-08.svg" alt="Shape" class="h q r" />
+        <img src="images/shape-09.svg" alt="Shape" class="of h y z/2" />
+        <img src="images/shape-10.svg" alt="Shape" class="h _ aa" />
+        <img src="images/shape-11.svg" alt="Shape" class="of h m ba" />
 
-     <!-- ===== Study Destinations Start ===== -->
-<section id="destination" class="i pg ji gp uq destination-bg">
-  <!-- Bg Shapes -->
-  <span class="rc h s r vd fd/5 fh rm"></span>
-  <img src="images/shape-08.svg" alt="Shape Bg" class="h q r" />
-  <img src="images/shape-09.svg" alt="Shape" class="of h y z/2" />
-  <img src="images/shape-10.svg" alt="Shape" class="h _ aa" />
-  <img src="images/shape-11.svg" alt="Shape" class="of h m ba" />
+        <div x-data="{ sectionTitle: `🌍 Study Destinations`, sectionTitleText: `Explore top global destinations with the best universities, career opportunities, and student support.`}">
+          <div class="animate_top bb ze rj ki xn vq">
+            <h2 x-text="sectionTitle" class="fk vj pr kk wm on/5 gq/2 bb _b"></h2>
+            <p class="bb on/5 wo/5 hq" x-text="sectionTitleText"></p>
+          </div>
+        </div>
 
-  <!-- Section Title -->
-  <div x-data="{ sectionTitle: `Study Destinations`, sectionTitleText: `Explore top global destinations with the best universities, career opportunities, and student benefits.`}">
-    <div class="animate_top bb ze rj ki xn vq">
-      <h2 x-text="sectionTitle" class="fk vj pr kk wm on/5 gq/2 bb _b"></h2>
-      <p class="bb on/5 wo/5 hq" x-text="sectionTitleText"></p>
-    </div>
-  </div>
+        <div class="bb ze i va ki xn xq jb jo">
+          <div class="wc qf pn xo gg cp">
 
-  <!-- Cards -->
-  <div class="bb ze i va ki xn xq jb jo">
-    <div class="wc qf pn xo gg cp">
+            <!-- UK -->
+            <div class="animate_top rj destination-card">
+              <span class="destination-flag">🇬🇧</span>
+              <h4 class="destination-title">United Kingdom</h4>
+              <div class="destination-points">
+                <p>1-Year Masters Programs</p>
+                <p>Scholarships up to £5,000</p>
+                <p>2-Year Post Study Work Visa</p>
+                <p>Top Russell Group universities</p>
+              </div>
+            </div>
 
-      <!-- UK -->
-   <div class="animate_top rj destination-card">
-  <img src="images/team-01.png" alt="UK" />
+            <!-- Canada -->
+            <div class="animate_top rj destination-card">
+              <span class="destination-flag">🇨🇦</span>
+              <h4 class="destination-title">Canada</h4>
+              <div class="destination-points">
+                <p>PR Pathways available</p>
+                <p>Affordable tuition fees</p>
+                <p>High visa success rate</p>
+                <p>Work during studies permitted</p>
+              </div>
+            </div>
 
-  <h4 class="destination-title"> UK</h4>
+            <!-- Australia -->
+            <div class="animate_top rj destination-card">
+              <span class="destination-flag">🇦🇺</span>
+              <h4 class="destination-title">Australia</h4>
+              <div class="destination-points">
+                <p>Top-ranked universities</p>
+                <p>2–4 years post-study work</p>
+                <p>High quality of life</p>
+                <p>Strong Indian student community</p>
+              </div>
+            </div>
 
-  <div class="destination-points">
-    <p>1-Year Masters Programs</p>
-    <p>Scholarships up to £5000</p>
-    <p>2-Year Post Study Work Visa</p>
-  </div>
-</div>
+            <!-- USA -->
+            <div class="animate_top rj destination-card">
+              <span class="destination-flag">🇺🇸</span>
+              <h4 class="destination-title">United States</h4>
+              <div class="destination-points">
+                <p>STEM & research-focused programs</p>
+                <p>Global career opportunities</p>
+                <p>OPT extension for STEM</p>
+                <p>World's top ranked universities</p>
+              </div>
+            </div>
 
-      <!-- Canada -->
-      <div class="animate_top rj destination-card">
-  <img src="images/team-01.png" alt="UK" />
-          
-        
-         <h4 class="destination-title">Canada</h4>
-         <div class="destination-points">
-        <p>PR Pathways</p>
-        <p> Affordable tuition</p>
-        <p> High visa success rate</p>
-      </div></div>
-<!-- Australia -->
-<div class="animate_top rj destination-card">
-  <img src="images/blog-01.png" alt="Australia" />
+            <!-- Europe -->
+            <div class="animate_top rj destination-card">
+              <span class="destination-flag">🇪🇺</span>
+              <h4 class="destination-title">Europe</h4>
+              <div class="destination-points">
+                <p>Low-cost education options</p>
+                <p>Schengen zone exposure</p>
+                <p>Study in Germany, France, Ireland</p>
+                <p>Growing tech & research hubs</p>
+              </div>
+            </div>
 
-  <h4 class="destination-title">Australia</h4>
+            <!-- Global -->
+            <div class="animate_top rj destination-card" style="background:linear-gradient(135deg,rgba(74,108,247,0.15),rgba(123,63,228,0.1));border-color:rgba(74,108,247,0.3);">
+              <span class="destination-flag">🌍</span>
+              <h4 class="destination-title">Global Access</h4>
+              <div class="destination-points">
+                <p>900+ Universities Worldwide</p>
+                <p>End-to-End Support</p>
+                <p>Admissions to Visa Guidance</p>
+                <p>Free for every student</p>
+              </div>
+            </div>
 
-  <div class="destination-points">
-    <p>Top-ranked universities</p>
-    <p>2–4 years post-study work opportunities</p>
-  </div>
-</div>
+          </div>
+        </div>
+      </section>
+      <!-- ===== Study Destinations End ===== -->
 
-<!-- USA -->
-<div class="animate_top rj destination-card">
-  <img src="images/blog-01.png" alt="USA" />
-
-  <h4 class="destination-title">USA</h4>
-
-  <div class="destination-points">
-    <p>STEM & research-focused programs</p>
-    <p>Global career opportunities</p>
-  </div>
-</div>
-
-<!-- Europe -->
-<div class="animate_top rj destination-card">
-  <img src="images/blog-01.png" alt="Europe" />
-
-  <h4 class="destination-title">Europe</h4>
-
-  <div class="destination-points">
-    <p>Low-cost education</p>
-    <p>Schengen exposure</p>
-    <p>Germany, France, Ireland options</p>
-  </div>
-</div>
-
-<!-- Global -->
-<div class="animate_top rj destination-card">
-  <img src="images/blog-01.png" alt="Global" />
-
-  <h4 class="destination-title">🌍 Global Access</h4>
-
-  <div class="destination-points">
-    <p>900+ Universities Worldwide</p>
-    <p>End-to-End Support</p>
-    <p>Admissions to Visa Guidance</p>
-  </div>
-</div>
-
-    </div>
-  </div>
-</section>
-<!-- ===== Study Destinations End ===== -->
-
-       <!-- ===== CTA Start ===== -->
+      <!-- ===== CTA Strip ===== -->
       <section class="i pg gh ji">
-  <!-- Bg Shape -->
-  <img class="h p q" src="images/shape-16.svg" alt="Bg Shape" />
+        <img class="h p q" src="images/shape-16.svg" alt="Bg Shape" />
+        <div class="bb ye i z-10 ki xn dr">
+          <div class="tc uf sn tn un gg">
+            <div class="animate_left to/2">
+              <h2 class="fk vj zp pr lk ac">Start Your Study Abroad Journey Today!</h2>
+              <p class="lk">Talk to Experts · Get Free Counseling · Visit Our Office / Apply Online</p>
+            </div>
+            <div class="animate_right bf">
+              <a href="#support" class="vc ek kk hh rg ol il cm gi hi">Get Started Now</a>
+            </div>
+          </div>
+        </div>
+      </section>
 
-  <div class="bb ye i z-10 ki xn dr">
-    <div class="tc uf sn tn un gg">
-      <div class="animate_left to/2">
-        <h2 class="fk vj zp pr lk ac">
-           Start Your Study Abroad Journey Today!
-        </h2>
-        <p class="lk">
-            Talk to Experts to Get Free Counseling | Visit Our Office / Apply Online </p>
-      </div>
-      <div class="animate_right bf">
-        <a href="#" class="vc ek kk hh rg ol il cm gi hi">
-            Get Started Now
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
+      <!-- ===== Services Start ===== -->
+      <section id="services" class="lj tp kr">
+        <div>
+          <div class="animate_top bb ze rj ki xn vq">
+            <h2 class="fk vj pr kk wm on/5 gq/2 bb _b">Our Comprehensive Study Abroad Services</h2>
+            <p class="bb on/5 wo/5 hq">From course selection to visa approval and post-arrival support — complete end-to-end solutions at zero cost.</p>
+          </div>
+        </div>
 
-      <!-- ===== CTA End ===== -->
- <!-- ===== Services Start ===== -->
-<section id="services" class="lj tp kr">
+        <div class="bb ze ki xn yq mb en">
+          <div class="wc qf pn xo ng">
+            <div class="animate_top sg oi pi zq ml il am cn _m sv-service-card">
+              <img src="images/icon-04.svg" alt="Course Selection" />
+              <h4 class="ek zj kk wm nb _b">Course Selection</h4>
+              <p>Profile-based course matching across UG, PG, MBA, Diploma & Pathway Programs from 900+ universities.</p>
+            </div>
+            <div class="animate_top sg oi pi zq ml il am cn _m sv-service-card">
+              <img src="images/icon-05.svg" alt="University Selection" />
+              <h4 class="ek zj kk wm nb _b">University Selection</h4>
+              <p>Direct admissions with partner universities. Personalized country & course guidance based on your profile.</p>
+            </div>
+            <div class="animate_top sg oi pi zq ml il am cn _m sv-service-card">
+              <img src="images/icon-06.svg" alt="Applications" />
+              <h4 class="ek zj kk wm nb _b">Applications</h4>
+              <p>Complete application support — SOP writing, documentation, and submission tracking. 48-hour offer letters.</p>
+            </div>
+            <div class="animate_top sg oi pi zq ml il am cn _m sv-service-card">
+              <img src="images/icon-07.svg" alt="Scholarships" />
+              <h4 class="ek zj kk wm nb _b">Scholarship Assistance</h4>
+              <p>Up to ₹3–10 Lakhs in scholarships. Merit-based & university scholarships with financial planning guidance.</p>
+            </div>
+            <div class="animate_top sg oi pi zq ml il am cn _m sv-service-card">
+              <img src="images/icon-04.svg" alt="Education Loan" />
+              <h4 class="ek zj kk wm nb _b">Education Loan</h4>
+              <p>Loan support from top banks & NBFCs. 100% tuition + living expense coverage for eligible students.</p>
+            </div>
+            <div class="animate_top sg oi pi zq ml il am cn _m sv-service-card">
+              <img src="images/icon-05.svg" alt="Visa Processing" />
+              <h4 class="ek zj kk wm nb _b">Visa Processing</h4>
+              <p>99%+ visa success rate. Complete documentation, mock interviews & SOP assistance included.</p>
+            </div>
+            <div class="animate_top sg oi pi zq ml il am cn _m sv-service-card">
+              <img src="images/icon-06.svg" alt="Air Ticket" />
+              <h4 class="ek zj kk wm nb _b">Air Ticket Assistance</h4>
+              <p>Best-fare flight booking guidance and pre-departure travel checklist for a smooth start abroad.</p>
+            </div>
+            <div class="animate_top sg oi pi zq ml il am cn _m sv-service-card">
+              <img src="images/icon-07.svg" alt="Accommodation" />
+              <h4 class="ek zj kk wm nb _b">Accommodation & Airport Pickup</h4>
+              <p>Student accommodation search, airport pickup coordination, and local settling-in support.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ===== Services End ===== -->
 
-  <!-- Section Title Start -->
-  <div>
-    <div class="animate_top bb ze rj ki xn vq">
-      <h2 class="fk vj pr kk wm on/5 gq/2 bb _b">
-        Our Comprehensive Study Abroad Services
-      </h2>
-      <p class="bb on/5 wo/5 hq">
-        From university admissions to visa approval and financial support, we provide complete end-to-end solutions to make your international education journey smooth, fast, and successful.
-      </p>
-    </div>
-  </div>
-  <!-- Section Title End -->
-
-  <div class="bb ze ki xn yq mb en">
-    <div class="wc qf pn xo ng">
-
-      <!-- Service 1 -->
-      <div class="animate_top sg oi pi zq ml il am cn _m">
-        <img src="images/icon-04.svg" alt="University Admissions" />
-        <h4 class="ek zj kk wm nb _b">University Admissions</h4>
-        <p>
-          UG | PG | MBA | Diploma | Pathway Programs <br>
-          Direct admissions with partner universities <br>
-         
-        </p>
-      </div>
-
-      <!-- Service 2 -->
-      <div class="animate_top sg oi pi zq ml il am cn _m">
-        <img src="images/icon-05.svg" alt="Study Abroad Counseling" />
-        <h4 class="ek zj kk wm nb _b">Study Abroad Counseling</h4>
-        <p>
-          Personalized career guidance <br>
-          Country & course selection <br>
-          Profile evaluation
-        </p>
-      </div>
-
-      <!-- Service 3 -->
-      <div class="animate_top sg oi pi zq ml il am cn _m">
-        <img src="images/icon-06.svg" alt="Scholarship Assistance" />
-        <h4 class="ek zj kk wm nb _b">Scholarship Assistance</h4>
-        <p>
-          Up to ₹3–10 Lakhs scholarships <br>
-          Merit-based & university scholarships <br>
-          Financial planning guidance
-        </p>
-      </div>
-
-      <!-- Service 4 -->
-      <div class="animate_top sg oi pi zq ml il am cn _m">
-        <img src="images/icon-07.svg" alt="Visa Processing" />
-        <h4 class="ek zj kk wm nb _b">Visa Processing</h4>
-        <p>
-          99%+ success guidance strategy <br>
-          Complete documentation support <br>
-          Mock interviews & SOP assistance
-        </p>
-      </div>
-
-      <!-- Service 5 -->
-      <div class="animate_top sg oi pi zq ml il am cn _m">
-        <img src="images/icon-05.svg" alt="IELTS PTE Support" />
-        <h4 class="ek zj kk wm nb _b">IELTS / PTE Support</h4>
-        <p>
-          Coaching & preparation guidance <br>
-          Score improvement strategies
-        </p>
-      </div>
-
-      <!-- Service 6 -->
-      <div class="animate_top sg oi pi zq ml il am cn _m">
-        <img src="images/icon-06.svg" alt="Education Loan Assistance" />
-        <h4 class="ek zj kk wm nb _b">Education Loan Assistance</h4>
-        <p>
-          Loan support from top banks & NBFCs <br>
-          100% tuition + living expense coverage
-        </p>
-      </div>
-
-    </div>
-  </div>
-</section>
-<!-- ===== Services End ===== -->
-    <!-- ===== Counter Start ===== -->
+      <!-- ===== Counter Start ===== -->
       <section class="i pg qh rm ji hp">
         <img src="images/shape-11.svg" alt="Shape" class="of h ga ha ke" />
         <img src="images/shape-07.svg" alt="Shape" class="h ia o ae jf" />
         <img src="images/shape-14.svg" alt="Shape" class="h ja ka" />
         <img src="images/shape-15.svg" alt="Shape" class="h q p" />
-
         <div class="bb ze i va ki xn br">
           <div class="tc uf sn tn xf un gg">
             <div class="animate_top me/5 ln rj">
               <h2 class="gk vj zp or kk wm hc">900+</h2>
-              <p class="ek bk aq"> Universities  </p>
+              <p class="ek bk aq">University Partners</p>
             </div>
             <div class="animate_top me/5 ln rj">
               <h2 class="gk vj zp or kk wm hc">10,000+</h2>
-              <p class="ek bk aq"> Students Guided </p>
+              <p class="ek bk aq">Students Guided</p>
             </div>
             <div class="animate_top me/5 ln rj">
-              <h2 class="gk vj zp or kk wm hc">99% </h2>
-              <p class="ek bk aq">Visa Success Guidance</p>
+              <h2 class="gk vj zp or kk wm hc">99%</h2>
+              <p class="ek bk aq">Visa Success Rate</p>
             </div>
             <div class="animate_top me/5 ln rj">
-              <h2 class="gk vj zp or kk wm hc">48 Hours</h2>
-              <p class="ek bk aq"> Fast Offer Letters</p>
+              <h2 class="gk vj zp or kk wm hc">12+</h2>
+              <p class="ek bk aq">Years of Experience</p>
             </div>
           </div>
         </div>
       </section>
-      <!-- ===== Counter End ===== --> 
+      <!-- ===== Counter End ===== -->
 
-
-      <!-- ===== Pricing Table Start ===== -->
-      <section x-data="setup()" class="i pg fh rm ji gp uq">
-        <!-- Bg Shapes -->
-        <img src="images/shape-06.svg" alt="Shape" class="h aa y" />
-        <img src="images/shape-03.svg" alt="Shape" class="h ca u" />
-        <img src="images/shape-07.svg" alt="Shape" class="h w da ee" />
-        <img src="images/shape-12.svg" alt="Shape" class="h p s" />
-        <img src="images/shape-13.svg" alt="Shape" class="h r q" />
-
-        <!-- Section Title Start -->
-        <div
-          x-data="{ sectionTitle: `We Offer Great Affordable Premium Prices.`, sectionTitleText: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using.`}"
-        >
+      <!-- ===== Team Start ===== -->
+      <section class="ji gp uq pg">
+        <div x-data="{ sectionTitle: `Meet Our Team`, sectionTitleText: `The experts behind 10,000+ successful student journeys — experienced, passionate, and committed to your success.`}">
           <div class="animate_top bb ze rj ki xn vq">
-    <h2
-            x-text="sectionTitle"
-            class="fk vj pr kk wm on/5 gq/2 bb _b"
-    >
-    </h2>
-    <p class="bb on/5 wo/5 hq" x-text="sectionTitleText"></p>
-</div>
-
-
-        </div>
-        <!-- Section Title End -->
-
-        <!-- Pricing switcher -->
-        <div class="tc wf xf jb og">
-          <span class="ek kk wm">Bill Monthly</span>
-          <button class="i rg gm" x-cloak @click="billPlan == 'monthly' ? billPlan = 'annually' : billPlan = 'monthly'">
-            <div class="fe id bl gh rg xk outline-none"></div>
-            <div
-              class="h vc wf xf ge jd cl jl ml mf hh rg yk ea fa"
-              :class="{ 'ff': billPlan == 'monthly', 'gf': billPlan == 'annually' }"
-            ></div>
-          </button>
-          <span class="ek kk wm">Bill Annually</span>
-        </div>
-
-        <!-- Pricing Table -->
-        <div class="bb ze i va ki xn yq bc">
-          <div class="wc qf pn xo jg">
-            <template x-for="(plan, i) in plans" x-key="i">
-              <!-- Pricing Item -->
-              <div class="animate_top rj sg hh sm vk xm hi nj oj">
-                <h4 x-text="plan.name" class="wj kk wm fb"></h4>
-
-                <div class="tc wf xf kg cc">
-                  <h2
-                    :class="plan.name == 'Basic' ? 'text-green-500' : ''"
-                    x-text="`$${billPlan == 'monthly' ? plan.price.monthly : plan.price.annually}`"
-                    class="fk _j kk wm"
-                  ></h2>
-                  <span x-text="billPlan == 'monthly' ? '/per month' : '/per year'" class="sc ak kk wm"></span>
-                </div>
-
-                <p class="ur dc">No credit card required</p>
-
-                <!-- Button -->
-                <a
-                  href="#"
-                  class="ek rg lk ml il gi ri"
-                  :class="plan.name == 'Growth Plan' ? 'gh sl' : 'mh tl'"
-                >
-                  Try for free
-                </a>
-
-                <!-- Features -->
-                <ul class="tc sf bg ob fb">
-                  <template x-for="(feature, i) in plan.features" x-key="i">
-                    <li x-text="feature"></li>
-                  </template>
-                </ul>
-
-                <p class="kk wm">7-day free trial</p>
-              </div>
-            </template>
+            <h2 x-text="sectionTitle" class="fk vj pr kk wm on/5 gq/2 bb _b"></h2>
+            <p class="bb on/5 wo/5 hq" x-text="sectionTitleText"></p>
           </div>
         </div>
-      </section>
-      <!-- ===== Pricing Table End ===== -->
-
-      <!-- ===== Projects Start ===== -->
-      <section class="pg pj vp mr oj wp nr">
-        <!-- Section Title Start -->
-        <div
-          x-data="{ sectionTitle: `We Offer Great Affordable Premium Prices.`, sectionTitleText: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using.`}"
-        >
-          <div class="animate_top bb ze rj ki xn vq">
-    <h2
-            x-text="sectionTitle"
-            class="fk vj pr kk wm on/5 gq/2 bb _b"
-    >
-    </h2>
-    <p class="bb on/5 wo/5 hq" x-text="sectionTitleText"></p>
-</div>
-
-
-        </div>
-        <!-- Section Title End -->
-
-        <div class="bb ze ki xn 2xl:ud-px-0 jb" x-data="{filterTab: 1}">
-          <!-- Porject Tab -->
-          <div
-            class="projects-tab _e bb tc uf wf xf cg rg hh rm vk xm si ti fc"
-          >
-            <button
-              data-filter="*"
-              @click="filterTab = 1"
-              :class="{ 'gh lk' : filterTab === 1 }"
-              class="project-tab-btn ek rg ml il vi mi"
-            >
-              All
-            </button>
-            <button
-              data-filter=".branding"
-              @click="filterTab = 2"
-              :class="{ 'gh lk' : filterTab === 2 }"
-              class="project-tab-btn ek rg ml il vi mi"
-            >
-              Branding Strategy
-            </button>
-            <button
-              data-filter=".digital"
-              @click="filterTab = 3"
-              :class="{ 'gh lk' : filterTab === 3 }"
-              class="project-tab-btn ek rg ml il vi mi"
-            >
-              Digital Experiences
-            </button>
-            <button
-              data-filter=".ecommerce"
-              @click="filterTab = 4"
-              :class="{ 'gh lk' : filterTab === 4 }"
-              class="project-tab-btn ek rg ml il vi mi"
-            >
-              Ecommerce
-            </button>
-          </div>
-
-          <!-- Projects item wrapper -->
-          <div class="projects-wrapper tc -ud-mx-5">
-            <div class="project-sizer"></div>
-            <!-- Project Item -->
-            <div class="project-item wi fb vd jn/2 to/3 branding ecommerce">
-              <div class="c i pg sg z-1">
-                <img src="images/project-01.png" alt="Project" />
-
-                <div 
-                  class="h s r df nl kl im tc sf wf xf vd yc sg al hh/20 z-10"
-                >
-                  <h4 class="ek tj kk hc">Photo Retouching</h4>
-                  <p>Branded Ecommerce</p>
-                  <a
-                    class="c tc wf xf ie ld rg _g dh ml il ph jm km jc"
-                    href="#"
-                  >
-                    <svg class="th lm ml il" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M10.4763 6.16664L6.00634 1.69664L7.18467 0.518311L13.6663 6.99998L7.18467 13.4816L6.00634 12.3033L10.4763 7.83331H0.333008V6.16664H10.4763Z" />
-                    </svg>
-                  </a>
-                </div>
-              </div>
+        <div class="bb ze i va ki xn xq jb jo">
+          <div class="wc qf pn xo gg cp">
+            <div class="animate_top rj sv-team-card">
+              <img src="images/team-01.png" alt="Sandeep Kumar Gouru" class="sv-team-avatar" />
+              <h4 class="sv-team-name">Sandeep Kumar Gouru</h4>
+              <p class="sv-team-role">Managing Director &amp; Founder</p>
             </div>
-
-            <!-- Project Item -->
-            <div class="project-item wi fb vd jn/2 to/3 digital">
-              <div class="c i pg sg z-1">
-                <img src="images/project-02.png" alt="Project" />
-
-                <div
-                  class="h s r df nl kl im tc sf wf xf vd yc sg al hh/20 z-10"
-                >
-                  <h4 class="ek tj kk hc">Photo Retouching</h4>
-                  <p>Branded Ecommerce</p>
-                  <a
-                    class="c tc wf xf ie ld rg _g dh ml il ph jm km jc"
-                    href="#"
-                  >
-                    <svg class="th lm ml il" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M10.4763 6.16664L6.00634 1.69664L7.18467 0.518311L13.6663 6.99998L7.18467 13.4816L6.00634 12.3033L10.4763 7.83331H0.333008V6.16664H10.4763Z" />
-                    </svg>
-                  </a>
-                </div>
-              </div>
+            <div class="animate_top rj sv-team-card">
+              <img src="images/team-02.png" alt="Jaiprakash Ake" class="sv-team-avatar" />
+              <h4 class="sv-team-name">Jaiprakash Ake</h4>
+              <p class="sv-team-role">Co-Founder</p>
             </div>
-
-            <!-- Project Item -->
-            <div class="project-item wi fb vd jn/2 to/3 branding ecommerce">
-              <div class="c i pg sg z-1">
-                <img src="images/project-04.png" alt="Project" />
-
-                <div
-                  class="h s r df nl kl im tc sf wf xf vd yc sg al hh/20 z-10"
-                >
-                  <h4 class="ek tj kk hc">Photo Retouching</h4>
-                  <p>Branded Ecommerce</p>
-                  <a
-                    class="c tc wf xf ie ld rg _g dh ml il ph jm km jc"
-                    href="#"
-                  >
-                    <svg class="th lm ml il" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M10.4763 6.16664L6.00634 1.69664L7.18467 0.518311L13.6663 6.99998L7.18467 13.4816L6.00634 12.3033L10.4763 7.83331H0.333008V6.16664H10.4763Z" />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <!-- Project Item -->
-            <div class="project-item wi fb vd vo/3 digital ecommerce">
-              <div class="c i pg sg z-1">
-                <img src="images/project-03.png" alt="Project" />
-
-                <div
-                  class="h s r df nl kl im tc sf wf xf vd yc sg al hh/20 z-10"
-                >
-                  <h4 class="ek tj kk hc">Photo Retouching</h4>
-                  <p>Branded Ecommerce</p>
-                  <a
-                    class="c tc wf xf ie ld rg _g dh ml il ph jm km jc"
-                    href="#"
-                  >
-                    <svg class="th lm ml il" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M10.4763 6.16664L6.00634 1.69664L7.18467 0.518311L13.6663 6.99998L7.18467 13.4816L6.00634 12.3033L10.4763 7.83331H0.333008V6.16664H10.4763Z" />
-                    </svg>
-                  </a>
-                </div>
-              </div>
+            <div class="animate_top rj sv-team-card">
+              <img src="images/team-03.png" alt="Santhosh Kumar Doddi" class="sv-team-avatar" />
+              <h4 class="sv-team-name">Santhosh Kumar Doddi</h4>
+              <p class="sv-team-role">Business Development Manager</p>
             </div>
           </div>
         </div>
       </section>
-      <!-- ===== Projects End ===== -->
+      <!-- ===== Team End ===== -->
 
       <!-- ===== Testimonials Start ===== -->
-      <section class="hj rp hr">
-        <!-- Section Title Start -->
-        <div
-          x-data="{ sectionTitle: `Client’s Testimonials`, sectionTitleText: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using.`}"
-        >
+      <section id="testimonials" class="hj rp hr">
+        <div x-data="{ sectionTitle: `What Our Students Say`, sectionTitleText: `Real stories from students who achieved their dream of studying abroad with T20 Services — at zero cost.`}">
           <div class="animate_top bb ze rj ki xn vq">
-    <h2
-            x-text="sectionTitle"
-            class="fk vj pr kk wm on/5 gq/2 bb _b"
-    >
-    </h2>
-    <p class="bb on/5 wo/5 hq" x-text="sectionTitleText"></p>
-</div>
-
-
+            <h2 x-text="sectionTitle" class="fk vj pr kk wm on/5 gq/2 bb _b"></h2>
+            <p class="bb on/5 wo/5 hq" x-text="sectionTitleText"></p>
+          </div>
         </div>
-        <!-- Section Title End -->
 
         <div class="bb ze ki xn ar">
           <div class="animate_top jb cq">
-           <div class="swiper testimonial-01">
-  <div class="swiper-wrapper">
+            <div class="swiper testimonial-01">
+              <div class="swiper-wrapper">
 
-    <!-- Testimonial 1 -->
-    <div class="swiper-slide">
-      <div class="i hh rm sg vk xm bi qj">
-        <span class="rc je md/2 gh xg h q r"></span>
-        <span class="rc je md/2 mh yg h q p"></span>
+                <div class="swiper-slide">
+                  <div class="i hh rm sg vk xm bi qj">
+                    <span class="rc je md/2 gh xg h q r"></span>
+                    <span class="rc je md/2 mh yg h q p"></span>
+                    <div class="tc sf rn tn un zf dp">
+                      <div>
+                        <div class="sv-testi-stars">★★★★★</div>
+                        <img src="images/icon-quote.svg" alt="Quote" />
+                        <p class="ek ik xj _p kc fb">
+                          It gives me an immense pleasure to share my experience with T20. I would like to recommend all students to choose T20 educational consultancy. The guidance was exceptional and completely free!
+                        </p>
+                        <p class="sv-testi-name">Naveen Nagavarapu</p>
+                        <p class="sv-testi-role">Student — St. Mary Engineering College</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
-        <div class="tc sf rn tn un zf dp">
-          <div>
-            <img src="images/icon-quote.svg" alt="Quote" />
-            <p class="ek ik xj _p kc fb">
-              Swift Visa made my dream of studying abroad possible with fast admission and clear guidance.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
+                <div class="swiper-slide">
+                  <div class="i hh rm sg vk xm bi qj">
+                    <span class="rc je md/2 gh xg h q r"></span>
+                    <span class="rc je md/2 mh yg h q p"></span>
+                    <div class="tc sf rn tn un zf dp">
+                      <div>
+                        <div class="sv-testi-stars">★★★★★</div>
+                        <img src="images/icon-quote.svg" alt="Quote" />
+                        <p class="ek ik xj _p kc fb">
+                          Thank you T20 for my admission! We got a seat within 2 days. Awesome experience with Sandeep — very helpful and caring. Gives great guidance and support. Thank you sir!
+                        </p>
+                        <p class="sv-testi-name">Kavitha Kukkadapu</p>
+                        <p class="sv-testi-role">MBA Student — Avanthi</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
-    <!-- Testimonial 2 -->
-    <div class="swiper-slide">
-      <div class="i hh rm sg vk xm bi qj">
-        <span class="rc je md/2 gh xg h q r"></span>
-        <span class="rc je md/2 mh yg h q p"></span>
+                <div class="swiper-slide">
+                  <div class="i hh rm sg vk xm bi qj">
+                    <span class="rc je md/2 gh xg h q r"></span>
+                    <span class="rc je md/2 mh yg h q p"></span>
+                    <div class="tc sf rn tn un zf dp">
+                      <div>
+                        <div class="sv-testi-stars">★★★★★</div>
+                        <img src="images/icon-quote.svg" alt="Quote" />
+                        <p class="ek ik xj _p kc fb">
+                          This is one of the best career guidance I have known. Very polite, very friendly, clearing every doubt. Please approach them for any queries — best career advice and absolutely zero fees charged.
+                        </p>
+                        <p class="sv-testi-name">Krishna Agarwal</p>
+                        <p class="sv-testi-role">BSc, Engineering</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
-        <div class="tc sf rn tn un zf dp">
-          <div>
-            <img src="images/icon-quote.svg" alt="Quote" />
-            <p class="ek ik xj _p kc fb">
-              Got my UK admission within 2 days and visa without hassle!
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- Navigation -->
-  <div class="tc wf xf fg jb">
-    <div class="swiper-button-prev c tc wf xf ie ld rg _g dh pf ml vr hh rm tl zm rl ym">
-      <svg class="th lm" width="14" height="14" viewBox="0 0 14 14" fill="none">
-        <path d="M3.52366 7.83336L7.99366 12.3034L6.81533 13.4817L0.333663 7.00002L6.81533 0.518357L7.99366 1.69669L3.52366 6.16669L13.667 6.16669L13.667 7.83336L3.52366 7.83336Z"/>
-      </svg>
-    </div>
-
-    <div class="swiper-button-next c tc wf xf ie ld rg _g dh pf ml vr hh rm tl zm rl ym">
-      <svg class="th lm" width="14" height="14" viewBox="0 0 14 14" fill="none">
-        <path d="M10.4763 6.16664L6.00634 1.69664L7.18467 0.518311L13.6663 6.99998L7.18467 13.4816L6.00634 12.3033L10.4763 7.83331H0.333008V6.16664H10.4763Z"/>
-      </svg>
-    </div>
-  </div>
-</div>
+              </div>
+              <div class="tc wf xf fg jb">
+                <div class="swiper-button-prev c tc wf xf ie ld rg _g dh pf ml vr hh rm tl zm rl ym">
+                  <svg class="th lm" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3.52366 7.83336L7.99366 12.3034L6.81533 13.4817L0.333663 7.00002L6.81533 0.518357L7.99366 1.69669L3.52366 6.16669L13.667 6.16669L13.667 7.83336L3.52366 7.83336Z"/></svg>
+                </div>
+                <div class="swiper-button-next c tc wf xf ie ld rg _g dh pf ml vr hh rm tl zm rl ym">
+                  <svg class="th lm" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M10.4763 6.16664L6.00634 1.69664L7.18467 0.518311L13.6663 6.99998L7.18467 13.4816L6.00634 12.3033L10.4763 7.83331H0.333008V6.16664H10.4763Z"/></svg>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
       <!-- ===== Testimonials End ===== -->
 
-      
-
-      
-
-      <!-- ===== Blog Start ===== -->
-      <section class="ji gp uq">
-        <!-- Section Title Start -->
-        <div
-          x-data="{ sectionTitle: `Latest Blogs & News`, sectionTitleText: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using.`}"
-        >
-          <div class="animate_top bb ze rj ki xn vq">
-    <h2
-            x-text="sectionTitle"
-            class="fk vj pr kk wm on/5 gq/2 bb _b"
-    >
-    </h2>
-    <p class="bb on/5 wo/5 hq" x-text="sectionTitleText"></p>
-</div>
-
-
-        </div>
-        <!-- Section Title End -->
-
-        <div class="bb ye ki xn vq jb jo">
-          <div class="wc qf pn xo zf iq">
-            <!-- Blog Item -->
-            <div class="animate_top sg vk rm xm">
-              <div class="c rc i z-1 pg">
-                <img class="w-full" src="images/blog-01.png" alt="Blog" />
-
-                <div
-                  class="im h r s df vd yc wg tc wf xf al hh/20 nl il z-10"
-                >
-                  <a href="./blog-single.html" class="vc ek rg lk gh sl ml il gi hi"
-                    >Read More</a
-                  >
-                </div>
-              </div>
-
-              <div class="yh">
-                <div class="tc uf wf ag jq">
-                  <div class="tc wf ag">
-                    <img src="images/icon-man.svg" alt="User" />
-                    <p>Musharof Chy</p>
-                  </div>
-                  <div class="tc wf ag">
-                    <img src="images/icon-calender.svg" alt="Calender" />
-                    <p>25 Dec, 2025</p>
-                  </div>
-                </div>
-                <h4 class="ek tj ml il kk wm xl eq lb">
-                  <a href="blog-single.html">Free advertising for your online business</a>
-                </h4>
-              </div>
-            </div>
-
-            <!-- Blog Item -->
-            <div class="animate_top sg vk rm xm">
-              <div class="c rc i z-1 pg">
-                <img class="w-full" src="images/blog-02.png" alt="Blog" />
-
-                <div
-                  class="im h r s df vd yc wg tc wf xf al hh/20 nl il z-10"
-                >
-                  <a href="./blog-single.html" class="vc ek rg lk gh sl ml il gi hi"
-                    >Read More</a
-                  >
-                </div>
-              </div>
-
-              <div class="yh">
-                <div class="tc uf wf ag jq">
-                  <div class="tc wf ag">
-                    <img src="images/icon-man.svg" alt="User" />
-                    <p>Musharof Chy</p>
-                  </div>
-                  <div class="tc wf ag">
-                    <img src="images/icon-calender.svg" alt="Calender" />
-                    <p>25 Dec, 2025</p>
-                  </div>
-                </div>
-                <h4 class="ek tj ml il kk wm xl eq lb">
-                  <a href="blog-single.html">9 simple ways to improve your design skills</a>
-                </h4>
-              </div>
-            </div>
-
-            <!-- Blog Item -->
-            <div class="animate_top sg vk rm xm">
-              <div class="c rc i z-1 pg">
-                <img class="w-full" src="images/blog-03.png" alt="Blog" />
-
-                <div
-                  class="im h r s df vd yc wg tc wf xf al hh/20 nl il z-10"
-                >
-                  <a href="./blog-single.html" class="vc ek rg lk gh sl ml il gi hi"
-                    >Read More</a
-                  >
-                </div>
-              </div>
-
-              <div class="yh">
-                <div class="tc uf wf ag jq">
-                  <div class="tc wf ag">
-                    <img src="images/icon-man.svg" alt="User" />
-                    <p>Musharof Chy</p>
-                  </div>
-                  <div class="tc wf ag">
-                    <img src="images/icon-calender.svg" alt="Calender" />
-                    <p>25 Dec, 2025</p>
-                  </div>
-                </div>
-                <h4 class="ek tj ml il kk wm xl eq lb">
-                  <a href="blog-single.html">Tips to quickly improve your coding speed.</a>
-                </h4>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- ===== Blog End ===== -->
-
       <!-- ===== Contact Start ===== -->
       <section id="support" class="i pg fh rm ji gp uq">
-        <!-- Bg Shapes -->
         <img src="images/shape-06.svg" alt="Shape" class="h aa y" />
         <img src="images/shape-03.svg" alt="Shape" class="h ca u" />
         <img src="images/shape-07.svg" alt="Shape" class="h w da ee" />
         <img src="images/shape-12.svg" alt="Shape" class="h p s" />
         <img src="images/shape-13.svg" alt="Shape" class="h r q" />
 
-        <!-- Section Title Start -->
-        <div
-          x-data="{ sectionTitle: `Let’s Stay Connected`, sectionTitleText: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using.`}"
-        >
+        <div x-data="{ sectionTitle: `Book Your Free Counselling`, sectionTitleText: `Talk to our experts and take the first step toward your dream university — completely free of charge.`}">
           <div class="animate_top bb ze rj ki xn vq">
-    <h2
-            x-text="sectionTitle"
-            class="fk vj pr kk wm on/5 gq/2 bb _b"
-    >
-    </h2>
-    <p class="bb on/5 wo/5 hq" x-text="sectionTitleText"></p>
-</div>
-
-
+            <h2 x-text="sectionTitle" class="fk vj pr kk wm on/5 gq/2 bb _b"></h2>
+            <p class="bb on/5 wo/5 hq" x-text="sectionTitleText"></p>
+          </div>
         </div>
-        <!-- Section Title End -->
 
         <div class="i va bb ye ki xn wq jb mo">
           <div class="tc uf sn tf rn un zf xl:gap-10">
-            <div class="animate_top w-full mn/5 to/3 vk sg hh sm yh rq i pg">
-              <!-- Bg Shapes -->
-              <img src="images/shape-03.svg" alt="Shape" class="h la x wd" />
-              <img src="images/shape-06.svg" alt="Shape" class="h la ma ne kf" />
 
-              <div class="fb">
-                <h4 class="wj kk wm cc">Email Address</h4>
-                <p><a href="#">anushkumar96@gmail.com</a></p>
-              </div>
-              <div class="fb">
-                <h4 class="wj kk wm cc">Office Location</h4>
-                <p>23/2 8th cross street, T V Nagar, Kodugaiyur, Chennai - 600118</p>
-              </div>
-              <div class="fb">
-                <h4 class="wj kk wm cc">Phone Number</h4>
-                <p><a href="#">91 9042035522</a></p>
-              </div>
-              
+            <!-- Contact Info Panel -->
+            <div class="animate_top w-full mn/5 to/3 sv-contact-info">
+              <h3 style="font-size:22px;font-weight:700;margin-bottom:8px;">We're Here For You</h3>
+              <p style="font-size:14px;opacity:.6;margin-bottom:28px;line-height:1.6;">Our counsellors are ready to help you navigate admissions, visa, scholarships, and more — all at zero cost.</p>
 
-              <span class="rc nd rh tm lc fb"></span>
+              <div class="sv-contact-detail">
+                <span class="sv-contact-icon">📍</span>
+                <div>
+                  <span class="sv-contact-label">Office Address</span>
+                  <p class="sv-contact-val">302, ACE CRYSTAL, OMNI Hospital Rd, above Reliance Smart Supermarket, Kothapet, Dilsukhnagar, Hyderabad – 500035</p>
+                </div>
+              </div>
+              <div class="sv-contact-detail">
+                <span class="sv-contact-icon">📧</span>
+                <div>
+                  <span class="sv-contact-label">Email Address</span>
+                  <p class="sv-contact-val"><a href="mailto:info@t20services.com">info@t20services.com</a></p>
+                </div>
+              </div>
+              <div class="sv-contact-detail">
+                <span class="sv-contact-icon">📞</span>
+                <div>
+                  <span class="sv-contact-label">Phone Number</span>
+                  <p class="sv-contact-val"><a href="tel:+919000101213">+91 9000101213</a></p>
+                </div>
+              </div>
+              <div class="sv-contact-detail">
+                <span class="sv-contact-icon">🌐</span>
+                <div>
+                  <span class="sv-contact-label">Website</span>
+                  <p class="sv-contact-val"><a href="https://www.t20services.com" target="_blank">www.t20services.com</a></p>
+                </div>
+              </div>
 
-              <div>
-                <h4 class="wj kk wm qb">Social Media</h4>
-                <ul class="tc wf fg">
-                  <li>
-                    <a href="#" class="c tc wf xf ie ld rg ml il tl">
-                      <svg class="th lm ml il" width="11" height="20" viewBox="0 0 11 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                          d="M6.83366 11.3752H9.12533L10.042 7.7085H6.83366V5.87516C6.83366 4.931 6.83366 4.04183 8.667 4.04183H10.042V0.96183C9.74316 0.922413 8.61475 0.833496 7.42308 0.833496C4.93433 0.833496 3.16699 2.35241 3.16699 5.14183V7.7085H0.416992V11.3752H3.16699V19.1668H6.83366V11.3752Z"
-                          fill=""
-                        />
-                      </svg>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" class="c tc wf xf ie ld rg ml il tl">
-                      <svg class="th lm ml il" width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                          d="M19.3153 2.18484C18.6155 2.4944 17.8733 2.6977 17.1134 2.78801C17.9144 2.30899 18.5138 1.55511 18.8001 0.666844C18.0484 1.11418 17.2244 1.42768 16.3654 1.59726C15.7885 0.979958 15.0238 0.57056 14.1901 0.432713C13.3565 0.294866 12.5007 0.436294 11.7558 0.835009C11.0108 1.23372 10.4185 1.86739 10.0708 2.63749C9.72313 3.40759 9.63963 4.27098 9.83327 5.09343C8.30896 5.01703 6.81775 4.62091 5.45645 3.93079C4.09516 3.24067 2.89423 2.27197 1.93161 1.08759C1.59088 1.67284 1.41182 2.33814 1.41278 3.01534C1.41278 4.34451 2.08928 5.51876 3.11778 6.20626C2.50912 6.1871 1.91386 6.02273 1.38161 5.72685V5.77451C1.38179 6.65974 1.68811 7.51766 2.24864 8.20282C2.80916 8.88797 3.58938 9.3582 4.45703 9.53376C3.89201 9.68688 3.29956 9.70945 2.72453 9.59976C2.96915 10.3617 3.44595 11.0281 4.08815 11.5056C4.73035 11.9831 5.50581 12.2478 6.30594 12.2627C5.51072 12.8872 4.60019 13.3489 3.62642 13.6213C2.65264 13.8938 1.63473 13.9716 0.630859 13.8503C2.38325 14.9773 4.4232 15.5756 6.50669 15.5737C13.5586 15.5737 17.415 9.73176 17.415 4.66535C17.415 4.50035 17.4104 4.33351 17.4031 4.17035C18.1537 3.62783 18.8016 2.95578 19.3162 2.18576L19.3153 2.18484Z"
-                          fill=""
-                        />
-                      </svg>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" class="c tc wf xf ie ld rg ml il tl">
-                      <svg class="th lm ml il" width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                          d="M4.36198 2.58327C4.36174 3.0695 4.16835 3.53572 3.82436 3.87937C3.48037 4.22301 3.01396 4.41593 2.52773 4.41569C2.0415 4.41545 1.57528 4.22206 1.23164 3.87807C0.887991 3.53408 0.69507 3.06767 0.695313 2.58144C0.695556 2.09521 0.888943 1.62899 1.23293 1.28535C1.57692 0.941701 2.04333 0.748781 2.52956 0.749024C3.01579 0.749267 3.48201 0.942654 3.82566 1.28664C4.1693 1.63063 4.36222 2.09704 4.36198 2.58327ZM4.41698 5.77327H0.750313V17.2499H4.41698V5.77327ZM10.2103 5.77327H6.56198V17.2499H10.1736V11.2274C10.1736 7.87244 14.5461 7.56077 14.5461 11.2274V17.2499H18.167V9.98077C18.167 4.32494 11.6953 4.53577 10.1736 7.31327L10.2103 5.77327Z"
-                          fill=""
-                        />
-                      </svg>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" class="c tc wf xf ie ld rg ml il tl">
-                      <svg class="th lm ml il" width="22" height="14" viewBox="0 0 22 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                          d="M6.82308 0.904297C7.40883 0.904297 7.95058 0.95013 8.44558 1.0858C8.89476 1.16834 9.32351 1.33772 9.70783 1.58446C10.069 1.81088 10.3394 2.12896 10.5191 2.53688C10.6997 2.9448 10.7895 3.44438 10.7895 3.98796C10.7895 4.62321 10.6547 5.1668 10.3394 5.57471C10.069 5.98355 9.61799 6.34563 9.07716 6.61788C9.84349 6.84521 10.4292 7.25313 10.7895 7.79672C11.1507 8.34122 11.3762 9.02138 11.3762 9.7923C11.3762 10.4275 11.2405 10.9711 11.015 11.4249C10.7895 11.8786 10.4292 12.2865 10.0232 12.5588C9.58205 12.8506 9.09443 13.0651 8.58124 13.1931C8.04041 13.3297 7.49958 13.4205 6.95874 13.4205H0.916992V0.904297H6.82308ZM6.46191 5.98263C6.95783 5.98263 7.36391 5.84696 7.67924 5.62055C7.99458 5.39413 8.13024 4.9853 8.13024 4.48663C8.13024 4.21438 8.08441 3.94213 7.99458 3.76155C7.90474 3.58005 7.76908 3.44346 7.58941 3.3078C7.40883 3.21705 7.22824 3.1263 7.00274 3.08138C6.77724 3.03555 6.55266 3.03555 6.28133 3.03555H3.66699V5.98355H6.46283L6.46191 5.98263ZM6.59758 11.3341C6.86799 11.3341 7.13841 11.2883 7.36391 11.2434C7.59159 11.2001 7.80692 11.1071 7.99458 10.9711C8.17826 10.8384 8.33193 10.6685 8.44558 10.4725C8.53541 10.246 8.62616 9.9738 8.62616 9.65663C8.62616 9.02138 8.44558 8.56763 8.08533 8.25046C7.72416 7.97822 7.22824 7.84255 6.64249 7.84255H3.66699V11.335H6.59758V11.3341ZM15.2986 11.2883C15.6588 11.6513 16.1997 11.8328 16.9211 11.8328C17.417 11.8328 17.868 11.6971 18.2282 11.4707C18.5894 11.1985 18.8149 10.9262 18.9047 10.654H21.1139C20.7527 11.742 20.2119 12.513 19.4914 13.0116C18.7691 13.4654 17.9129 13.7376 16.8762 13.7376C16.2128 13.7396 15.5551 13.6165 14.9374 13.3746C14.3816 13.1661 13.886 12.8235 13.4946 12.3773C13.0759 11.9598 12.7665 11.4457 12.5935 10.8804C12.368 10.291 12.2772 9.65663 12.2772 8.93063C12.2772 8.25047 12.368 7.61613 12.5935 7.0258C12.8103 6.45755 13.1311 5.93468 13.5395 5.48396C13.9456 5.07605 14.4415 4.71396 14.9823 4.48663C15.5843 4.24469 16.2274 4.12143 16.8762 4.12363C17.6425 4.12363 18.319 4.26021 18.9047 4.57738C19.4914 4.89455 19.9415 5.25755 20.3027 5.80205C20.6711 6.32503 20.9456 6.90819 21.1139 7.52538C21.2037 8.15972 21.2487 8.79497 21.2037 9.52005H14.667C14.667 10.246 14.9374 10.9262 15.2986 11.2892V11.2883ZM18.1384 6.52713C17.8231 6.20996 17.3272 6.02846 16.7405 6.02846C16.3353 6.02846 16.0191 6.11922 15.7487 6.25488C15.4782 6.39147 15.2986 6.57297 15.118 6.75447C14.952 6.92978 14.8422 7.15067 14.8027 7.3888C14.7568 7.61613 14.7119 7.79672 14.7119 7.97822H18.7691C18.6792 7.29805 18.4537 6.84522 18.1384 6.52713ZM14.1711 1.76596H19.2201V2.99063H14.172V1.76596H14.1711Z"
-                          fill=""
-                        />
-                      </svg>
-                    </a>
-                  </li>
-                </ul>
+              <div style="height:1px;background:rgba(255,255,255,0.08);margin:20px 0;"></div>
+
+              <!-- Social Links -->
+              <p style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;opacity:.5;margin-bottom:12px;">Follow Us</p>
+              <ul class="tc wf fg" style="gap:10px;">
+                <li>
+                  <a href="#" class="c tc wf xf ie ld rg ml il tl">
+                    <svg class="th lm ml il" width="10" height="18" viewBox="0 0 10 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.66634 10.25H8.74968L9.58301 6.91669H6.66634V5.25002C6.66634 4.39169 6.66634 3.58335 8.33301 3.58335H9.58301V0.783354C9.31134 0.74752 8.28551 0.666687 7.20218 0.666687C4.93968 0.666687 3.33301 2.04752 3.33301 4.58335V6.91669H0.833008V10.25H3.33301V17.3334H6.66634V10.25Z" fill=""/></svg>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.instagram.com/t20services/" target="_blank" class="c tc wf xf ie ld rg ml il tl">
+                    <svg class="th lm ml il" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" fill=""/></svg>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="c tc wf xf ie ld rg ml il tl">
+                    <svg class="th lm ml il" width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.36198 2.58327C4.36174 3.0695 4.16835 3.53572 3.82436 3.87937C3.48037 4.22301 3.01396 4.41593 2.52773 4.41569C2.0415 4.41545 1.57528 4.22206 1.23164 3.87807C0.887991 3.53408 0.69507 3.06767 0.695313 2.58144C0.695556 2.09521 0.888943 1.62899 1.23293 1.28535C1.57692 0.941701 2.04333 0.748781 2.52956 0.749024C3.01579 0.749267 3.48201 0.942654 3.82566 1.28664C4.1693 1.63063 4.36222 2.09704 4.36198 2.58327ZM4.41698 5.77327H0.750313V17.2499H4.41698V5.77327ZM10.2103 5.77327H6.56198V17.2499H10.1736V11.2274C10.1736 7.87244 14.5461 7.56077 14.5461 11.2274V17.2499H18.167V9.98077C18.167 4.32494 11.6953 4.53577 10.1736 7.31327L10.2103 5.77327Z" fill=""/></svg>
+                  </a>
+                </li>
+              </ul>
+
+              <div style="margin-top:24px;padding:14px 16px;background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.2);border-radius:10px;">
+                <p style="font-size:13px;color:#4ade80;font-weight:700;margin-bottom:4px;">💡 Zero Fee Promise</p>
+                <p style="font-size:12px;opacity:.6;line-height:1.5;">All counselling, application support, and visa guidance is 100% free for students — forever.</p>
               </div>
             </div>
 
+            <!-- Contact Form -->
             <div class="animate_top w-full nn/5 vo/3 vk sg hh sm yh tq">
-              <form action="https://formbold.com/s/unique_form_id" method="POST">
-                <div class="tc sf yo ap zf ep qb">
-                  <div class="vd to/2">
-                    <label class="rc ac" for="fullname">Full name</label>
-                    <input
-                      type="text"
-                      name="fullname"
-                      id="fullname"
-                      placeholder="Devid Wonder"
-                      class="vd ph sg zk xm _g ch pm hm dm dn em pl/50 xi mi"
-                    />
+              <form id="sv-contact-form" novalidate>
+                <div class="sv-form-group-half">
+                  <div>
+                    <label class="sv-form-label" for="sv-name">Full Name *</label>
+                    <input type="text" id="sv-name" name="name" placeholder="Your full name" class="sv-form-input" required />
                   </div>
-
-                  <div class="vd to/2">
-                    <label class="rc ac" for="email">Email address</label>
-                    <input
-                      type="email"
-                      name="email"
-                      id="email"
-                      placeholder="example@gmail.com"
-                      class="vd ph sg zk xm _g ch pm hm dm dn em pl/50 xi mi"
-                    />
+                  <div>
+                    <label class="sv-form-label" for="sv-email">Email Address *</label>
+                    <input type="email" id="sv-email" name="email" placeholder="you@email.com" class="sv-form-input" required />
                   </div>
                 </div>
-
-                <div class="tc sf yo ap zf ep qb">
-                  <div class="vd to/2">
-                    <label class="rc ac" for="phone">Phone number</label>
-                    <input
-                      type="text"
-                      name="phone"
-                      id="phone"
-                      placeholder="+009 3342 3432"
-                      class="vd ph sg zk xm _g ch pm hm dm dn em pl/50 xi mi"
-                    />
+                <div class="sv-form-group-half">
+                  <div>
+                    <label class="sv-form-label" for="sv-phone">Phone Number *</label>
+                    <input type="tel" id="sv-phone" name="phone" placeholder="+91 XXXXX XXXXX" class="sv-form-input" required />
                   </div>
-
-                  <div class="vd to/2">
-                    <label class="rc ac" for="subject">Subject</label>
-                    <input
-                      type="text"
-                      for="subject"
-                      id="subject"
-                      placeholder="Type your subject"
-                      class="vd ph sg zk xm _g ch pm hm dm dn em pl/50 xi mi"
-                    />
+                  <div>
+                    <label class="sv-form-label" for="sv-country">Desired Country *</label>
+                    <select id="sv-country" name="country" class="sv-form-input sv-form-select" required>
+                      <option value="" disabled selected>Select destination</option>
+                      <option>🇬🇧 United Kingdom</option>
+                      <option>🇺🇸 United States</option>
+                      <option>🇨🇦 Canada</option>
+                      <option>🇦🇺 Australia</option>
+                      <option>🇩🇪 Germany</option>
+                      <option>🇫🇷 France</option>
+                      <option>🇮🇪 Ireland</option>
+                      <option>🌍 Other</option>
+                    </select>
                   </div>
                 </div>
-
-                <div class="fb">
-                  <label class="rc ac" for="message">Message</label>
-                  <textarea
-                    placeholder="Message"
-                    rows="4"
-                    name="message"
-                    id="message"
-                    class="vd ph sg zk xm _g ch pm hm dm dn em pl/50 ci"
-                  ></textarea>
+                <div class="sv-form-group">
+                  <label class="sv-form-label" for="sv-query">Your Query *</label>
+                  <textarea id="sv-query" name="query" rows="5" placeholder="Tell us about your academic background, desired course, or any specific questions..." class="sv-form-input" style="resize:vertical;min-height:110px;" required></textarea>
                 </div>
-
-                <div class="tc xf">
-                  <button class="vc rg lk gh ml il hi gi _l">Send Message</button>
+                <div id="sv-form-status"></div>
+                <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:6px;">
+                  <button type="submit" class="sv-submit-btn" id="sv-submit">
+                    Send Message
+                    <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                  </button>
+                  <p style="font-size:12px;opacity:.5;line-height:1.5;">Zero fees. Our experts respond within 2 hours on business days.</p>
                 </div>
               </form>
             </div>
+
           </div>
         </div>
       </section>
       <!-- ===== Contact End ===== -->
 
-     
     </main>
+
     <!-- ===== Footer Start ===== -->
     <footer>
-  <div class="bb ze ki xn 2xl:ud-px-0">
-    <!-- Footer Top -->
-    <div class="ji gp">
-      <div class="tc uf ap gg fp">
-        <div class="animate_top zd/2 to/4">
-          <a href="index.html">
-            <img src="images/logo-light.jpeg" alt="Logo" class="om" style="height: 100px; width: auto;" />
-            <img src="images/logo-dark.jpeg" alt="Logo" class="xc nm" style="height: 100px; width: auto;" />
-          </a>
+      <div class="bb ze ki xn 2xl:ud-px-0">
+        <div class="ji gp">
+          <div class="tc uf ap gg fp">
+            <div class="animate_top zd/2 to/4">
+              <a href="index.html">
+                <img src="images/logo-light.jpeg" alt="T20 Services" class="om" style="height:70px;width:auto;"/>
+                <img src="images/logo-dark.jpeg" alt="T20 Services" class="xc nm" style="height:70px;width:auto;"/>
+              </a>
+              <p class="lc fb" style="margin-top:14px;">T20 Services — Founded in Hyderabad in 2008. Your trusted overseas education partner helping students reach top global universities at zero cost.</p>
+              <ul class="tc wf cg" style="margin-top:16px;">
+                <li><a href="#"><svg class="vh ul cl il" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M14 13.5H16.5L17.5 9.5H14V7.5C14 6.47 14 5.5 16 5.5H17.5V2.14C17.174 2.097 15.943 2 14.643 2C11.928 2 10 3.657 10 6.7V9.5H7V13.5H10V22H14V13.5Z" fill=""/></svg></a></li>
+                <li><a href="https://www.instagram.com/t20services/" target="_blank"><svg class="vh ul cl il" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" fill=""/></svg></a></li>
+                <li><a href="#"><svg class="vh ul cl il" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M6.94 5.00002C6.93974 5.53046 6.72877 6.03906 6.35351 6.41394C5.97825 6.78883 5.46944 6.99929 4.939 6.99902C4.40857 6.99876 3.89997 6.78779 3.52508 6.41253C3.1502 6.03727 2.93974 5.52846 2.94 4.99802C2.94027 4.46759 3.15124 3.95899 3.5265 3.5841C3.90176 3.20922 4.41057 2.99876 4.941 2.99902C5.47144 2.99929 5.98004 3.21026 6.35492 3.58552C6.72981 3.96078 6.94027 4.46959 6.94 5.00002ZM7 8.48002H3V21H7V8.48002ZM13.32 8.48002H9.34V21H13.28V14.43C13.28 10.77 18.05 10.43 18.05 14.43V21H22V13.07C22 6.90002 14.94 7.13002 13.28 10.16L13.32 8.48002Z" fill=""/></svg></a></li>
+              </ul>
+            </div>
 
-          <p class="lc fb">  Your trusted partner for global education. Making study abroad simple, transparent, and accessible.</p>
+            <div class="vd ro tc sf rn un gg vn">
+              <div class="animate_top">
+                <h4 class="kk wm tj ec">Quick Links</h4>
+                <ul>
+                  <li><a href="index.html" class="sc xl vb">Home</a></li>
+                  <li><a href="#About" class="sc xl vb">About Us</a></li>
+                  <li><a href="#services" class="sc xl vb">Services</a></li>
+                  <li><a href="#destination" class="sc xl vb">Destinations</a></li>
+                  <li><a href="#support" class="sc xl vb">Contact Us</a></li>
+                </ul>
+              </div>
 
-         
+              <div class="animate_top">
+                <h4 class="kk wm tj ec">Destinations</h4>
+                <ul>
+                  <li><a href="#destination" class="sc xl vb">🇺🇸 Study in USA</a></li>
+                  <li><a href="#destination" class="sc xl vb">🇬🇧 Study in UK</a></li>
+                  <li><a href="#destination" class="sc xl vb">🇦🇺 Study in Australia</a></li>
+                  <li><a href="#destination" class="sc xl vb">🇨🇦 Study in Canada</a></li>
+                  <li><a href="#destination" class="sc xl vb">🇪🇺 Study in Europe</a></li>
+                </ul>
+              </div>
+
+              <div class="animate_top">
+                <h4 class="kk wm tj ec">Contact Us</h4>
+                <ul>
+                  <li><a href="tel:+919000101213" class="sc xl vb">📞 +91 9000101213</a></li>
+                  <li><a href="mailto:info@t20services.com" class="sc xl vb">📧 info@t20services.com</a></li>
+                  <li><a href="https://www.t20services.com" target="_blank" class="sc xl vb">🌐 t20services.com</a></li>
+                </ul>
+                <p style="font-size:12px;opacity:.5;margin-top:12px;line-height:1.6;">302, ACE CRYSTAL, Kothapet,<br/>Dilsukhnagar, Hyderabad – 500035</p>
+              </div>
+
+              <div class="animate_top">
+                <h4 class="kk wm tj ec">Our Services</h4>
+                <ul>
+                  <li><a href="#services" class="sc xl vb">Course Selection</a></li>
+                  <li><a href="#services" class="sc xl vb">University Selection</a></li>
+                  <li><a href="#services" class="sc xl vb">Scholarship Assistance</a></li>
+                  <li><a href="#services" class="sc xl vb">Visa Processing</a></li>
+                  <li><a href="#services" class="sc xl vb">Education Loan</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div class="vd ro tc sf rn un gg vn">
+        <div class="bh ch pm tc uf sf yo wf xf ap cg fp bj">
           <div class="animate_top">
-            <h4 class="kk wm tj ec">Quick Links</h4>
-
-
-<ul>
-              <li><a href="index.html" class="sc xl vb">Home</a></li>
-              <li><a href="about.html" class="sc xl vb">About Us</a></li>
-              <li><a href="services.html" class="sc xl vb">Services</a></li>
-              <li><a href="destinations.html" class="sc xl vb">Destinations</a></li>
-            </ul>
+            <p>No Hidden Fees — Direct Path to Your Dream College at Zero Cost.</p>
           </div>
-
           <div class="animate_top">
-            <h4 class="kk wm tj ec">Explore</h4>
-
-          <ul>
-              <li><a href="#" class="sc xl vb">Featured Colleges</a></li>
-              <li><a href="#testimonials" class="sc xl vb">Testimonials</a></li>
-              <li><a href="#contact" class="sc xl vb">Get Started</a></li>
-              <li><a href="#contact" class="sc xl vb">Contact</a></li>
-            </ul>
-          </div>
-
-          <div class="animate_top">
-            <h4 class="kk wm tj ec">Support</h4>
-
-            <ul>
-              <li><a href="#" class="sc xl vb">Company</a></li>
-              <li><a href="#" class="sc xl vb">Press media</a></li>
-              <li><a href="#" class="sc xl vb">Our Blog</a></li>
-              <li><a href="#" class="sc xl vb">Contact Us</a></li>
-            </ul>
-          </div>
-
-          <div class="animate_top">
-            <h4 class="kk wm tj ec">Newsletter</h4>
-
-             <ul class="tc wf cg">
-            <li>
-              <a href="#">
-                <svg class="vh ul cl il" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <g clip-path="url(#clip0_48_1499)">
-                    <path d="M14 13.5H16.5L17.5 9.5H14V7.5C14 6.47 14 5.5 16 5.5H17.5V2.14C17.174 2.097 15.943 2 14.643 2C11.928 2 10 3.657 10 6.7V9.5H7V13.5H10V22H14V13.5Z" fill="" />
-                  </g>
-                  <defs>
-                    <clipPath id="clip0_48_1499">
-                      <rect width="24" height="24" fill="white" />
-                    </clipPath>
-                  </defs>
-                </svg>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <svg class="vh ul cl il" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <g clip-path="url(#clip0_48_1502)">
-                    <path
-                      d="M22.162 5.65593C21.3985 5.99362 20.589 6.2154 19.76 6.31393C20.6337 5.79136 21.2877 4.96894 21.6 3.99993C20.78 4.48793 19.881 4.82993 18.944 5.01493C18.3146 4.34151 17.4803 3.89489 16.5709 3.74451C15.6615 3.59413 14.7279 3.74842 13.9153 4.18338C13.1026 4.61834 12.4564 5.30961 12.0771 6.14972C11.6978 6.98983 11.6067 7.93171 11.818 8.82893C10.1551 8.74558 8.52832 8.31345 7.04328 7.56059C5.55823 6.80773 4.24812 5.75098 3.19799 4.45893C2.82628 5.09738 2.63095 5.82315 2.63199 6.56193C2.63199 8.01193 3.36999 9.29293 4.49199 10.0429C3.828 10.022 3.17862 9.84271 2.59799 9.51993V9.57193C2.59819 10.5376 2.93236 11.4735 3.54384 12.221C4.15532 12.9684 5.00647 13.4814 5.95299 13.6729C5.33661 13.84 4.6903 13.8646 4.06299 13.7449C4.32986 14.5762 4.85 15.3031 5.55058 15.824C6.25117 16.345 7.09712 16.6337 7.96999 16.6499C7.10247 17.3313 6.10917 17.8349 5.04687 18.1321C3.98458 18.4293 2.87412 18.5142 1.77899 18.3819C3.69069 19.6114 5.91609 20.2641 8.18899 20.2619C15.882 20.2619 20.089 13.8889 20.089 8.36193C20.089 8.18193 20.084 7.99993 20.076 7.82193C20.8949 7.2301 21.6016 6.49695 22.163 5.65693L22.162 5.65593Z"
-                      fill=""
-                    />
-                  </g>
-                  <defs>
-                    <clipPath id="clip0_48_1502">
-                      <rect width="24" height="24" fill="white" />
-                    </clipPath>
-                  </defs>
-                </svg>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <svg class="vh ul cl il" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <g clip-path="url(#clip0_48_1505)">
-                    <path
-                      d="M6.94 5.00002C6.93974 5.53046 6.72877 6.03906 6.35351 6.41394C5.97825 6.78883 5.46944 6.99929 4.939 6.99902C4.40857 6.99876 3.89997 6.78779 3.52508 6.41253C3.1502 6.03727 2.93974 5.52846 2.94 4.99802C2.94027 4.46759 3.15124 3.95899 3.5265 3.5841C3.90176 3.20922 4.41057 2.99876 4.941 2.99902C5.47144 2.99929 5.98004 3.21026 6.35492 3.58552C6.72981 3.96078 6.94027 4.46959 6.94 5.00002ZM7 8.48002H3V21H7V8.48002ZM13.32 8.48002H9.34V21H13.28V14.43C13.28 10.77 18.05 10.43 18.05 14.43V21H22V13.07C22 6.90002 14.94 7.13002 13.28 10.16L13.32 8.48002Z"
-                      fill=""
-                    />
-                  </g>
-                  <defs>
-                    <clipPath id="clip0_48_1505">
-                      <rect width="24" height="24" fill="white" />
-                    </clipPath>
-                  </defs>
-                </svg>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <svg class="vh ul cl il" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <g clip-path="url(#clip0_48_1508)">
-                    <path
-                      d="M7.443 5.3501C8.082 5.3501 8.673 5.4001 9.213 5.5481C9.70301 5.63814 10.1708 5.82293 10.59 6.0921C10.984 6.3391 11.279 6.6861 11.475 7.1311C11.672 7.5761 11.77 8.1211 11.77 8.7141C11.77 9.4071 11.623 10.0001 11.279 10.4451C10.984 10.8911 10.492 11.2861 9.902 11.5831C10.738 11.8311 11.377 12.2761 11.77 12.8691C12.164 13.4631 12.41 14.2051 12.41 15.0461C12.41 15.7391 12.262 16.3321 12.016 16.8271C11.77 17.3221 11.377 17.7671 10.934 18.0641C10.4528 18.3825 9.92084 18.6165 9.361 18.7561C8.771 18.9051 8.181 19.0041 7.591 19.0041H1V5.3501H7.443ZM7.049 10.8901C7.59 10.8901 8.033 10.7421 8.377 10.4951C8.721 10.2481 8.869 9.8021 8.869 9.2581C8.869 8.9611 8.819 8.6641 8.721 8.4671C8.623 8.2691 8.475 8.1201 8.279 7.9721C8.082 7.8731 7.885 7.7741 7.639 7.7251C7.393 7.6751 7.148 7.6751 6.852 7.6751H4V10.8911H7.05L7.049 10.8901ZM7.197 16.7281C7.492 16.7281 7.787 16.6781 8.033 16.6291C8.28138 16.5819 8.51628 16.4805 8.721 16.3321C8.92139 16.1873 9.08903 16.002 9.213 15.7881C9.311 15.5411 9.41 15.2441 9.41 14.8981C9.41 14.2051 9.213 13.7101 8.82 13.3641C8.426 13.0671 7.885 12.9191 7.246 12.9191H4V16.7291H7.197V16.7281ZM16.689 16.6781C17.082 17.0741 17.672 17.2721 18.459 17.2721C19 17.2721 19.492 17.1241 19.885 16.8771C20.279 16.5801 20.525 16.2831 20.623 15.9861H23.033C22.639 17.1731 22.049 18.0141 21.263 18.5581C20.475 19.0531 19.541 19.3501 18.41 19.3501C17.6864 19.3523 16.9688 19.2179 16.295 18.9541C15.6887 18.7266 15.148 18.3529 14.721 17.8661C14.2643 17.4107 13.9267 16.8498 13.738 16.2331C13.492 15.5901 13.393 14.8981 13.393 14.1061C13.393 13.3641 13.492 12.6721 13.738 12.0281C13.9745 11.4082 14.3245 10.8378 14.77 10.3461C15.213 9.9011 15.754 9.5061 16.344 9.2581C17.0007 8.99416 17.7022 8.85969 18.41 8.8621C19.246 8.8621 19.984 9.0111 20.623 9.3571C21.263 9.7031 21.754 10.0991 22.148 10.6931C22.5499 11.2636 22.8494 11.8998 23.033 12.5731C23.131 13.2651 23.18 13.9581 23.131 14.7491H16C16 15.5411 16.295 16.2831 16.689 16.6791V16.6781ZM19.787 11.4841C19.443 11.1381 18.902 10.9401 18.262 10.9401C17.82 10.9401 17.475 11.0391 17.18 11.1871C16.885 11.3361 16.689 11.5341 16.492 11.7321C16.311 11.9234 16.1912 12.1643 16.148 12.4241C16.098 12.6721 16.049 12.8691 16.049 13.0671H20.475C20.377 12.3251 20.131 11.8311 19.787 11.4841V11.4841ZM15.459 6.2901H20.967V7.6261H15.46V6.2901H15.459Z"
-                    />
-                  </g>
-                  <defs>
-                    <clipPath id="clip0_48_1508">
-                      <rect width="24" height="24" fill="white" />
-                    </clipPath>
-                  </defs>
-                </svg>
-              </a>
-            </li>
-          </ul>
-          <br>
-            <p class="ac qe">Zero Cost Admission Guidance</p>
-
-           
+            <p>&copy; 2026 T20 Services. All rights reserved.</p>
           </div>
         </div>
       </div>
-    </div>
-    <!-- Footer Top -->
-
-    <!-- Footer Bottom -->
-    <div class="bh ch pm tc uf sf yo wf xf ap cg fp bj">
-      <div class="animate_top">
-        <ul class="tc wf gg">
-           <p> First — No Hidden Fees. Direct Path to Your Dream College at Zero Cost.
-        </p>
-        </ul>
-      </div>
-
-      <div class="animate_top">
-        <p>&copy; 2026 Swift Visa. All rights reserved.</p>
-      </div>
-    </div>
-    <!-- Footer Bottom -->
-  </div>
-</footer>
-
+    </footer>
     <!-- ===== Footer End ===== -->
 
-    <!-- ====== Back To Top Start ===== -->
+    <!-- Back To Top -->
     <button
-  class="xc wf xf ie ld vg sr gh tr g sa ta _a"
-  @click="window.scrollTo({top: 0, behavior: 'smooth'})"
-  @scroll.window="scrollTop = (window.pageYOffset > 50) ? true : false"
-  :class="{ 'uc' : scrollTop }"
->
-  <svg class="uh se qd" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-    <path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z" />
-  </svg>
-</button>
+      class="xc wf xf ie ld vg sr gh tr g sa ta _a"
+      @click="window.scrollTo({top: 0, behavior: 'smooth'})"
+      @scroll.window="scrollTop = (window.pageYOffset > 50) ? true : false"
+      :class="{ 'uc' : scrollTop }"
+    >
+      <svg class="uh se qd" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+        <path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z" />
+      </svg>
+    </button>
 
-    <!-- ====== Back To Top End ===== -->
+    <!-- WhatsApp Float -->
+    <a href="https://api.whatsapp.com/send/?phone=919000101213&text=Hi+T20+Services%2C+I+want+to+know+more+about+study+abroad+options&type=phone_number&app_absent=0" target="_blank" class="sv-whatsapp" title="Chat on WhatsApp">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+
+    <!-- Contact Form Script -->
+    <script>
+      document.getElementById('sv-contact-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const btn = document.getElementById('sv-submit');
+        const status = document.getElementById('sv-form-status');
+        const name = document.getElementById('sv-name').value.trim();
+        const email = document.getElementById('sv-email').value.trim();
+        const phone = document.getElementById('sv-phone').value.trim();
+        const country = document.getElementById('sv-country').value;
+        const query = document.getElementById('sv-query').value.trim();
+
+        if (!name || !email || !phone || !country || !query) {
+          status.className = 'err';
+          status.textContent = '⚠️ Please fill in all required fields.';
+          return;
+        }
+
+        btn.disabled = true;
+        btn.textContent = 'Sending...';
+        status.className = '';
+        status.style.display = 'none';
+
+        const subject = encodeURIComponent('Study Abroad Enquiry from ' + name);
+        const body = encodeURIComponent(
+          'Name: ' + name + '\n' +
+          'Email: ' + email + '\n' +
+          'Phone: ' + phone + '\n' +
+          'Desired Country: ' + country + '\n\n' +
+          'Query:\n' + query + '\n\n' +
+          '---\nSent from t20services website contact form'
+        );
+
+        window.location.href = 'mailto:info@t20services.com?subject=' + subject + '&body=' + body;
+
+        status.className = 'ok';
+        status.textContent = '✅ Your email client has opened with your message pre-filled. Please click Send to complete your enquiry!';
+        document.getElementById('sv-contact-form').reset();
+        btn.disabled = false;
+        btn.innerHTML = 'Send Message <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>';
+      });
+    </script>
 
     <script>
-      //  Pricing Table
       const setup = () => {
         return {
           isNavOpen: false,
-
           billPlan: 'monthly',
-
           plans: [
-            {
-              name: 'Starter',
-              price: {
-                monthly: 29,
-                annually: 29 * 12 - 199,
-              },
-              features: ['400 GB Storaget', 'Unlimited Photos & Videos', 'Exclusive Support'],
-            },
-            {
-              name: 'Growth Plan',
-              price: {
-                monthly: 59,
-                annually: 59 * 12 - 100,
-              },
-              features: ['400 GB Storaget', 'Unlimited Photos & Videos', 'Exclusive Support'],
-            },
-            {
-              name: 'Business',
-              price: {
-                monthly: 139,
-                annually: 139 * 12 - 100,
-              },
-              features: ['400 GB Storaget', 'Unlimited Photos & Videos', 'Exclusive Support'],
-            },
+            { name: 'Starter', price: { monthly: 29, annually: 29*12-199 }, features: ['400 GB Storage', 'Unlimited Photos & Videos', 'Exclusive Support'] },
+            { name: 'Growth Plan', price: { monthly: 59, annually: 59*12-100 }, features: ['400 GB Storage', 'Unlimited Photos & Videos', 'Exclusive Support'] },
+            { name: 'Business', price: { monthly: 139, annually: 139*12-100 }, features: ['400 GB Storage', 'Unlimited Photos & Videos', 'Exclusive Support'] },
           ],
         };
       };
     </script>
-  <script defer src="bundle.js"></script></body>
+    <script defer src="bundle.js"></script>
+  </body>
 </html>
