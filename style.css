@@ -648,16 +648,18 @@ h1,  h2,  h3,  h4,  h5,  h6{
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 10px;
+  color:#000000;
 }
 
 .destination-points {
   font-size: 14px;
-  color: #64748b;
+  color: #000000;
   line-height: 1.6;
 }
 
 .destination-points p {
   margin: 4px 0;
+   color: #000000;
 }
 .i{
   position: relative;
@@ -1419,8 +1421,8 @@ h1,  h2,  h3,  h4,  h5,  h6{
   background-color: rgb(255 255 255 / 0.15);
 }
 .sh{
-  --tw-bg-opacity: 1 !important;
-  background-color: rgb(78 107 255 / var(--tw-bg-opacity)) !important;
+  --tw-bg-opacity: 1 ;
+  background-color: rgb(78 107 255 / var(--tw-bg-opacity)) ;
 }
 .th{
   fill: #79808A;
@@ -1435,7 +1437,7 @@ h1,  h2,  h3,  h4,  h5,  h6{
   fill: #4E6BFF;
 }
 .xh{
-  fill: #79808A !important;
+  fill: #79808A;
 }
 .yh{
   padding: 1.875rem;
@@ -1688,12 +1690,12 @@ h1,  h2,  h3,  h4,  h5,  h6{
   color: rgb(78 107 255 / var(--tw-text-opacity));
 }
 .nk{
-  --tw-text-opacity: 1 !important;
-  color: rgb(255 255 255 / var(--tw-text-opacity)) !important;
+  --tw-text-opacity: 1 ;
+  color: rgb(255 255 255 / var(--tw-text-opacity)) ;
 }
 .ok{
-  --tw-text-opacity: 1 !important;
-  color: rgb(121 128 138 / var(--tw-text-opacity)) !important;
+  --tw-text-opacity: 1 ;
+  color: rgb(121 128 138 / var(--tw-text-opacity));
 }
 .pk{
   --tw-text-opacity: 1;
