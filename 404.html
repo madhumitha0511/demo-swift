@@ -312,5 +312,90 @@
 </button>
 
     <!-- ====== Back To Top End ===== -->
-  <script defer src="bundle.js"></script></body>
+  <script defer src="bundle.js"></script>
+    
+
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const editables = document.querySelectorAll('p, h1, h2, h3, h4, h5, h6, span, a');
+        const pagePath = window.location.pathname.split('/').pop() || 'index.html';
+        
+        // Assign stable IDs
+        editables.forEach((el, i) => {
+          if (!el.hasAttribute('data-edit-id')) {
+            el.setAttribute('data-edit-id', 'sv-edit-' + i);
+          }
+        });
+
+        // Load saved content globally
+        const savedContent = JSON.parse(localStorage.getItem('sv_content_' + pagePath)) || {};
+        Object.keys(savedContent).forEach(id => {
+          const el = document.querySelector(`[data-edit-id="${id}"]`);
+          if (el) {
+            el.innerHTML = savedContent[id];
+          }
+        });
+
+        // Admin Edit Mode
+        if (localStorage.getItem('isAdmin') === 'true') {
+          editables.forEach(el => {
+            el.setAttribute('contenteditable', 'true');
+            el.style.outline = '1px dashed #25D366';
+            el.style.padding = '2px';
+            
+            if (el.tagName === 'A') {
+              el.addEventListener('click', e => e.preventDefault());
+            }
+          });
+
+          const btn = document.createElement('button');
+          btn.innerText = 'Save Content';
+          btn.style.position = 'fixed';
+          btn.style.bottom = '20px';
+          btn.style.left = '20px';
+          btn.style.zIndex = '999999';
+          btn.style.padding = '10px 20px';
+          btn.style.background = '#4A6CF7';
+          btn.style.color = 'white';
+          btn.style.border = 'none';
+          btn.style.borderRadius = '24px';
+          btn.style.cursor = 'pointer';
+          btn.style.fontWeight = '700';
+          btn.style.boxShadow = '0 4px 15px rgba(74, 108, 247, 0.4)';
+          btn.onclick = () => {
+            const toSave = {};
+            editables.forEach((el, i) => {
+              toSave['sv-edit-' + i] = el.innerHTML;
+            });
+            localStorage.setItem('sv_content_' + pagePath, JSON.stringify(toSave));
+            btn.innerText = 'Saved!';
+            setTimeout(() => btn.innerText = 'Save Content', 2000);
+          };
+          document.body.appendChild(btn);
+
+          const logoutBtn = document.createElement('button');
+          logoutBtn.innerText = 'Logout Admin';
+          logoutBtn.style.position = 'fixed';
+          logoutBtn.style.bottom = '20px';
+          logoutBtn.style.left = '160px';
+          logoutBtn.style.zIndex = '999999';
+          logoutBtn.style.padding = '10px 20px';
+          logoutBtn.style.background = '#ef4444';
+          logoutBtn.style.color = 'white';
+          logoutBtn.style.border = 'none';
+          logoutBtn.style.borderRadius = '24px';
+          logoutBtn.style.cursor = 'pointer';
+          logoutBtn.style.fontWeight = '700';
+          logoutBtn.style.boxShadow = '0 4px 15px rgba(239, 68, 68, 0.4)';
+          logoutBtn.onclick = () => {
+            localStorage.removeItem('isAdmin');
+            location.reload();
+          };
+          document.body.appendChild(logoutBtn);
+        }
+      });
+    </script>
+
+</body>
 </html>

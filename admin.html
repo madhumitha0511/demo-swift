@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Login | Base</title>
+  <link rel="icon" href="favicon.ico"><link href="style.css" rel="stylesheet">
+<style>
+    /* ===== SWIFT VISA CUSTOM OVERRIDES ===== */
+
+    /* NAV ENHANCEMENTS */
+    .sv-nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(135deg, #4A6CF7, #7B3FE4);
+      color: #fff !important;
+      padding: 9px 22px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 14px;
+      text-decoration: none;
+      transition: all 0.25s;
+      box-shadow: 0 4px 15px rgba(74, 108, 247, 0.4);
+    }
+
+    .sv-nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(74, 108, 247, 0.5);
+    }
+
+    .sv-call-link {
+      font-size: 13px;
+      font-weight: 600;
+      color: inherit;
+      text-decoration: none;
+      opacity: 0.75;
+      transition: opacity 0.2s;
+    }
+
+    .sv-call-link:hover {
+      opacity: 1;
+    }
+
+    /* DESTINATION CARDS */
+    .destination-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 28px 24px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .destination-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #4A6CF7, #7B3FE4);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .destination-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(74, 108, 247, 0.4);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+    }
+
+    .destination-card:hover::before {
+      opacity: 1;
+    }
+
+    .destination-flag {
+      font-size: 42px;
+      line-height: 1;
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .destination-title {
+      font-size: 20px !important;
+      font-weight: 800 !important;
+      margin-bottom: 16px !important;
+      color: #000000 !important;
+    }
+
+    .destination-points p {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: rgba(0, 0, 0, 0.65);
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+
+    .destination-points p::before {
+      content: '✓';
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 18px;
+      height: 18px;
+      background: rgba(74, 108, 247, 0.2);
+      border-radius: 50%;
+      font-size: 10px;
+      color: #000000;
+      flex-shrink: 0;
+    }
+
+    /* SERVICES ENHANCEMENTS */
+    .sv-service-card {
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.3s;
+    }
+
+    .sv-service-card:hover {
+      border-color: rgba(74, 108, 247, 0.35);
+      transform: translateY(-4px);
+    }
+
+    /* TEAM / ABOUT SECTION */
+    .sv-team-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 28px 20px;
+      text-align: center;
+      transition: all 0.3s;
+    }
+
+    .sv-team-card:hover {
+      border-color: rgba(74, 108, 247, 0.3);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2);
+    }
+
+    .sv-team-avatar {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid rgba(74, 108, 247, 0.4);
+      margin: 0 auto 16px;
+      display: block;
+    }
+
+    .sv-team-name {
+      font-size: 16px !important;
+      font-weight: 700 !important;
+      margin-bottom: 4px !important;
+    }
+
+    .sv-team-role {
+      font-size: 13px;
+      opacity: 0.6;
+    }
+
+    /* CONTACT INFO PANEL */
+    .sv-contact-info {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 32px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sv-contact-info::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #4A6CF7, #7B3FE4);
+    }
+
+    .sv-contact-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .sv-contact-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(74, 108, 247, 0.15);
+      border: 1px solid rgba(74, 108, 247, 0.25);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .sv-contact-label {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      opacity: 0.5;
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .sv-contact-val {
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.5;
+    }
+
+    .sv-contact-val a {
+      text-decoration: none;
+      color: inherit;
+      transition: color 0.2s;
+    }
+
+    .sv-contact-val a:hover {
+      color: #4A6CF7;
+    }
+
+    /* FORM STYLES */
+    .sv-form-input {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.05) !important;
+      border: 1.5px solid rgba(255, 255, 255, 0.1) !important;
+      border-radius: 10px !important;
+      padding: 13px 16px !important;
+      font-size: 15px;
+      color: inherit;
+      outline: none;
+      transition: all 0.25s;
+      font-family: inherit;
+      appearance: none;
+    }
+
+    .sv-form-input:focus {
+      border-color: #4A6CF7 !important;
+      background: rgba(74, 108, 247, 0.07) !important;
+      box-shadow: 0 0 0 4px rgba(74, 108, 247, 0.12);
+    }
+
+    .sv-form-input::placeholder {
+      opacity: 0.35;
+    }
+
+    .sv-form-select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='7'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 40px !important;
+      cursor: pointer;
+    }
+
+    .sv-form-label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      opacity: 0.55;
+      margin-bottom: 7px;
+    }
+
+    .sv-form-group {
+      margin-bottom: 16px;
+    }
+
+    .sv-form-group-half {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    @media(max-width:640px) {
+      .sv-form-group-half {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .sv-submit-btn {
+      background: linear-gradient(135deg, #4A6CF7, #7B3FE4);
+      color: #fff;
+      border: none;
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.25s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      letter-spacing: 0.2px;
+    }
+
+    .sv-submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(74, 108, 247, 0.45);
+    }
+
+    .sv-submit-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    #sv-form-status {
+      padding: 12px 18px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 500;
+      margin-top: 14px;
+      display: none;
+    }
+
+    #sv-form-status.ok {
+      background: rgba(34, 197, 94, 0.1);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      color: #4ade80;
+      display: block;
+    }
+
+    #sv-form-status.err {
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      color: #f87171;
+      display: block;
+    }
+
+    /* ZERO FEE BADGE */
+    .sv-zero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(34, 197, 94, 0.1);
+      border: 1px solid rgba(34, 197, 94, 0.25);
+      color: #4ade80;
+      padding: 4px 12px;
+      border-radius: 50px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 18px;
+    }
+
+    .sv-zero-badge::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #4ade80;
+      animation: sv-pulse 2s infinite;
+    }
+
+    @keyframes sv-pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1)
+      }
+
+      50% {
+        opacity: .5;
+        transform: scale(1.4)
+      }
+    }
+
+    /* USP highlights */
+    .sv-usp-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 20px 0 28px;
+    }
+
+    .sv-usp-chip {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 7px 14px;
+      border-radius: 50px;
+      font-size: 13px;
+      color: rgba(14, 13, 13, 0.75);
+    }
+
+    .sv-usp-chip span {
+      color: #4ade80;
+      font-weight: 700;
+    }
+
+    /* WHATSAPP FLOAT */
+    .sv-whatsapp {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 56px;
+      height: 56px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+      z-index: 9999;
+      transition: all 0.25s;
+      text-decoration: none;
+    }
+
+    .sv-whatsapp:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5);
+    }
+
+    /* STATS COUNTER */
+    .sv-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      overflow: hidden;
+      margin: 40px 0;
+    }
+
+    .sv-stat {
+      padding: 28px 20px;
+      text-align: center;
+      border-right: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.02);
+      transition: background 0.3s;
+    }
+
+    .sv-stat:last-child {
+      border-right: none;
+    }
+
+    .sv-stat:hover {
+      background: rgba(74, 108, 247, 0.07);
+    }
+
+    .sv-stat-num {
+      display: block;
+      font-size: 34px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #4A6CF7, #7B3FE4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+
+    .sv-stat-label {
+      font-size: 13px;
+      opacity: 0.55;
+    }
+
+    @media(max-width:640px) {
+      .sv-stats-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .sv-stat {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+    }
+
+    /* TESTIMONIAL OVERRIDE */
+    .sv-testi-name {
+      font-size: 15px;
+      font-weight: 700;
+      margin-top: 16px;
+    }
+
+    .sv-testi-role {
+      font-size: 13px;
+      opacity: 0.55;
+    }
+
+    .sv-testi-stars {
+      color: #FACC15;
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+  <body
+    x-data="{ page: 'signin', 'darkMode': true, 'stickyMenu': false, 'navigationOpen': false, 'scrollTop': false }"
+    x-init="
+         darkMode = JSON.parse(localStorage.getItem('darkMode'));
+         $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))"
+    :class="{'b eh': darkMode === true}"
+  >
+    <!-- ===== Header Start ===== -->
+    <header class="g s r vd ya cj" :class="{ 'hh sm _k dj bl ll' : stickyMenu }"
+    @scroll.window="stickyMenu = (window.pageYOffset > 20) ? true : false">
+    <div class="bb ze ki xn 2xl:ud-px-0 oo wf yf i">
+      <!-- Logo -->
+      <div class="vd to/4 tc wf yf">
+        <a href="index.html">
+          <img class="om" src="images/logo-light.jpeg" alt="Swift Visa" style="height:45px;width:auto;" />
+          <img class="xc nm" src="images/logo-dark.jpeg" alt="Swift Visa" style="height:45px;width:auto;" />
+        </a>
+        <!-- Hamburger -->
+        <button class="po rc" @click="navigationOpen = !navigationOpen">
+          <span class="rc i pf re pd">
+            <span class="du-block h q vd yc">
+              <span class="rc i r s eh um tg te rd eb ml jl dl" :class="{ 'ue el': !navigationOpen }"></span>
+              <span class="rc i r s eh um tg te rd eb ml jl fl" :class="{ 'ue qr': !navigationOpen }"></span>
+              <span class="rc i r s eh um tg te rd eb ml jl gl" :class="{ 'ue hl': !navigationOpen }"></span>
+            </span>
+            <span class="du-block h q vd yc lf">
+              <span class="rc eh um tg ml jl el h na r ve yc" :class="{ 'sd dl': !navigationOpen }"></span>
+              <span class="rc eh um tg ml jl qr h s pa vd rd" :class="{ 'sd rr': !navigationOpen }"></span>
+            </span>
+          </span>
+        </button>
+      </div>
+
+      <!-- Nav Links -->
+      <div class="vd wo/4 sd qo f ho oo wf yf" :class="{ 'd hh rm sr td ud qg ug jc yh': navigationOpen }">
+        <nav>
+          <ul class="tc _o sf yo cg ep" style="justify-content:center;">
+            <li><a href="index.html" class="xl" :class="{ 'mk': page === 'home' }">Home</a></li>
+            <li><a href="#About" class="xl">About Us</a></li>
+            <li><a href="#services" class="xl">Services</a></li>
+            <li><a href="#destination" class="xl">Destinations</a></li>
+            <li><a href="#testimonials" class="xl">Testimonials</a></li>
+            <li><a href="#support" class="xl">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="tc wf ig pb no" style="gap:12px;align-items:center;">
+          <a href="tel:+919042035522" class="sv-call-link">📞 +91 9000101213</a>
+          <a href="#support" class="sv-nav-cta">Free Counselling →</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+    <!-- ===== Header End ===== -->
+
+    <main>
+      <!-- ===== SignIn Form Start ===== -->
+      <section class="i pg fh rm ki xn vq gj qp gr hj rp hr">
+        <!-- Bg Shapes -->
+        <img src="images/shape-06.svg" alt="Shape" class="h j k" />
+        <img src="images/shape-03.svg" alt="Shape" class="h l m" />
+        <img src="images/shape-17.svg" alt="Shape" class="h n o" />
+        <img src="images/shape-18.svg" alt="Shape" class="h p q" />
+
+        <div
+          class="animate_top bb af i va sg hh sm vk xm yi _n jp hi ao kp"
+        >
+          <!-- Bg Border -->
+          <span class="rc h r s zd/2 od zg gh"></span>
+          <span class="rc h r q zd/2 od xg mh"></span>
+
+          <div class="rj">
+            <h2 class="ek ck kk wm xb">Admin Login</h2>
+            <p>Login to edit and alter the content in the website.</p>
+
+            
+          </div>
+
+          
+          <form class="sb" onsubmit="return handleAdminLogin(event)">
+            <div class="wb">
+              <label class="rc kk wm vb" for="username">Username</label>
+              <input
+                type="text"
+                name="username"
+                id="username"
+                placeholder="Admin Username"
+                class="vd hh rg zk _g ch hm dm fm pl/50 xi mi sm xm pm dn/40"
+                required
+              />
+            </div>
+
+            <div class="wb">
+              <label class="rc kk wm vb" for="password">Password</label>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="**************"
+                class="vd hh rg zk _g ch hm dm fm pl/50 xi mi sm xm pm dn/40"
+                required
+              />
+            </div>
+
+            <p id="loginError" style="display: none; color: #ef4444; margin-bottom: 1rem;">Invalid username or password.</p>
+
+            <button type="submit" class="sv-submit-btn" style="width: 100%; justify-content: center; margin-top: 10px;">
+              Login to Admin
+            </button>
+          </form>
+
+          <script>
+            function handleAdminLogin(event) {
+              event.preventDefault();
+              var user = document.getElementById('username').value;
+              var pass = document.getElementById('password').value;
+              if (user === 'admin' && pass === 'admin123') {
+                localStorage.setItem('isAdmin', 'true');
+                alert('Admin login successful! Content editing enabled.');
+                window.location.href = 'index.html';
+              } else {
+                document.getElementById('loginError').style.display = 'block';
+              }
+              return false;
+            }
+          </script>
+
+        </div>
+      </section>
+      <!-- ===== SignIn Form End ===== -->
+    </main>
+    <!-- ===== Footer Start ===== -->
+    <footer>
+    <div class="bb ze ki xn 2xl:ud-px-0">
+      <div class="ji gp">
+        <div class="tc uf ap gg fp">
+          <div class="animate_top zd/2 to/4">
+            <a href="index.html">
+              <img src="images/logo-light.jpeg" alt="swiftvisa" class="om" style="height:70px;width:auto;" />
+              <img src="images/logo-dark.jpeg" alt="swiftvisa" class="xc nm" style="height:70px;width:auto;" />
+            </a>
+            <p class="lc fb" style="margin-top:14px;">Swift Visa— Founded in Hyderabad in 2008. Your trusted overseas
+              education partner helping students reach top global universities at zero cost.</p>
+            <ul class="tc wf cg" style="margin-top:16px;">
+              <li><a href="#"><svg class="vh ul cl il" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M14 13.5H16.5L17.5 9.5H14V7.5C14 6.47 14 5.5 16 5.5H17.5V2.14C17.174 2.097 15.943 2 14.643 2C11.928 2 10 3.657 10 6.7V9.5H7V13.5H10V22H14V13.5Z"
+                      fill="" />
+                  </svg></a></li>
+              <li><a href="https://www.instagram.com/swiftvisa/" target="_blank"><svg class="vh ul cl il" width="24"
+                    height="24" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                      fill="" />
+                  </svg></a></li>
+              <li><a href="#"><svg class="vh ul cl il" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M6.94 5.00002C6.93974 5.53046 6.72877 6.03906 6.35351 6.41394C5.97825 6.78883 5.46944 6.99929 4.939 6.99902C4.40857 6.99876 3.89997 6.78779 3.52508 6.41253C3.1502 6.03727 2.93974 5.52846 2.94 4.99802C2.94027 4.46759 3.15124 3.95899 3.5265 3.5841C3.90176 3.20922 4.41057 2.99876 4.941 2.99902C5.47144 2.99929 5.98004 3.21026 6.35492 3.58552C6.72981 3.96078 6.94027 4.46959 6.94 5.00002ZM7 8.48002H3V21H7V8.48002ZM13.32 8.48002H9.34V21H13.28V14.43C13.28 10.77 18.05 10.43 18.05 14.43V21H22V13.07C22 6.90002 14.94 7.13002 13.28 10.16L13.32 8.48002Z"
+                      fill="" />
+                  </svg></a></li>
+            </ul>
+          </div>
+
+          <div class="vd ro tc sf rn un gg vn">
+            <div class="animate_top">
+              <h4 class="kk wm tj ec">Quick Links</h4>
+              <ul>
+                <li><a href="index.html" class="sc xl vb">Home</a></li>
+                <li><a href="#About" class="sc xl vb">About Us</a></li>
+                <li><a href="#services" class="sc xl vb">Services</a></li>
+                <li><a href="#destination" class="sc xl vb">Destinations</a></li>
+                <li><a href="#support" class="sc xl vb">Contact Us</a></li>
+              </ul>
+            </div>
+
+            <div class="animate_top">
+              <h4 class="kk wm tj ec">Destinations</h4>
+              <ul>
+                <li><a href="#destination" class="sc xl vb">🇺🇸 Study in USA</a></li>
+                <li><a href="#destination" class="sc xl vb">🇬🇧 Study in UK</a></li>
+                <li><a href="#destination" class="sc xl vb">🇦🇺 Study in Australia</a></li>
+                <li><a href="#destination" class="sc xl vb">🇨🇦 Study in Canada</a></li>
+                <li><a href="#destination" class="sc xl vb">🇪🇺 Study in Europe</a></li>
+              </ul>
+            </div>
+
+            <div class="animate_top">
+              <h4 class="kk wm tj ec">Contact Us</h4>
+              <ul>
+                <li><a href="tel:919042035522" class="sc xl vb">📞 +91 9000101213</a></li>
+                <li><a href="mailto:anushkumar96@gmail.com" class="sc xl vb">📧 anushkumar96@gmail.com</a></li>
+                <li><a href="https://www.swiftvisa.in" target="_blank" class="sc xl vb">🌐 swiftvisa.in </a></li>
+              </ul>
+              <p style="font-size:12px;opacity:.5;margin-top:12px;line-height:1.6;">3/2 8th cross street, T V Nagar,<br>
+                Kodugaiyur, Chennai - 600118</p>
+            </div>
+
+            <div class="animate_top">
+              <h4 class="kk wm tj ec">Our Services</h4>
+              <ul>
+                <li><a href="#services" class="sc xl vb">Course Selection</a></li>
+                <li><a href="#services" class="sc xl vb">University Selection</a></li>
+                <li><a href="#services" class="sc xl vb">Scholarship Assistance</a></li>
+                <li><a href="#services" class="sc xl vb">Visa Processing</a></li>
+                <li><a href="#services" class="sc xl vb">Education Loan</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bh ch pm tc uf sf yo wf xf ap cg fp bj">
+        <div class="animate_top">
+          <p>No Hidden Fees — Direct Path to Your Dream College at Zero Cost.</p>
+        </div>
+        <div class="animate_top">
+          <p>&copy; 2026 Swift Visa. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+    <!-- ===== Footer End ===== -->
+
+    <!-- ====== Back To Top Start ===== -->
+    <button
+  class="xc wf xf ie ld vg sr gh tr g sa ta _a"
+  @click="window.scrollTo({top: 0, behavior: 'smooth'})"
+  @scroll.window="scrollTop = (window.pageYOffset > 50) ? true : false"
+  :class="{ 'uc' : scrollTop }"
+>
+  <svg class="uh se qd" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+    <path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z" />
+  </svg>
+</button>
+
+    <!-- ====== Back To Top End ===== -->
+  <script defer src="bundle.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const editables = document.querySelectorAll('p, h1, h2, h3, h4, h5, h6, span, a');
+        const pagePath = window.location.pathname.split('/').pop() || 'index.html';
+        
+        // Assign stable IDs
+        editables.forEach((el, i) => {
+          if (!el.hasAttribute('data-edit-id')) {
+            el.setAttribute('data-edit-id', 'sv-edit-' + i);
+          }
+        });
+
+        // Load saved content globally
+        const savedContent = JSON.parse(localStorage.getItem('sv_content_' + pagePath)) || {};
+        Object.keys(savedContent).forEach(id => {
+          const el = document.querySelector(`[data-edit-id="${id}"]`);
+          if (el) {
+            el.innerHTML = savedContent[id];
+          }
+        });
+
+        // Admin Edit Mode
+        if (localStorage.getItem('isAdmin') === 'true') {
+          editables.forEach(el => {
+            el.setAttribute('contenteditable', 'true');
+            el.style.outline = '1px dashed #25D366';
+            el.style.padding = '2px';
+            
+            if (el.tagName === 'A') {
+              el.addEventListener('click', e => e.preventDefault());
+            }
+          });
+
+          const btn = document.createElement('button');
+          btn.innerText = 'Save Content';
+          btn.style.position = 'fixed';
+          btn.style.bottom = '20px';
+          btn.style.left = '20px';
+          btn.style.zIndex = '999999';
+          btn.style.padding = '10px 20px';
+          btn.style.background = '#4A6CF7';
+          btn.style.color = 'white';
+          btn.style.border = 'none';
+          btn.style.borderRadius = '24px';
+          btn.style.cursor = 'pointer';
+          btn.style.fontWeight = '700';
+          btn.style.boxShadow = '0 4px 15px rgba(74, 108, 247, 0.4)';
+          btn.onclick = () => {
+            const toSave = {};
+            editables.forEach((el, i) => {
+              toSave['sv-edit-' + i] = el.innerHTML;
+            });
+            localStorage.setItem('sv_content_' + pagePath, JSON.stringify(toSave));
+            btn.innerText = 'Saved!';
+            setTimeout(() => btn.innerText = 'Save Content', 2000);
+          };
+          document.body.appendChild(btn);
+
+          const logoutBtn = document.createElement('button');
+          logoutBtn.innerText = 'Logout Admin';
+          logoutBtn.style.position = 'fixed';
+          logoutBtn.style.bottom = '20px';
+          logoutBtn.style.left = '160px';
+          logoutBtn.style.zIndex = '999999';
+          logoutBtn.style.padding = '10px 20px';
+          logoutBtn.style.background = '#ef4444';
+          logoutBtn.style.color = 'white';
+          logoutBtn.style.border = 'none';
+          logoutBtn.style.borderRadius = '24px';
+          logoutBtn.style.cursor = 'pointer';
+          logoutBtn.style.fontWeight = '700';
+          logoutBtn.style.boxShadow = '0 4px 15px rgba(239, 68, 68, 0.4)';
+          logoutBtn.onclick = () => {
+            localStorage.removeItem('isAdmin');
+            location.reload();
+          };
+          document.body.appendChild(logoutBtn);
+        }
+      });
+    </script>
+
+</body>
+</html>
